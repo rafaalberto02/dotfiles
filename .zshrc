@@ -50,3 +50,7 @@ PERL5LIB="/Users/rahenriques/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export P
 PERL_LOCAL_LIB_ROOT="/Users/rahenriques/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/rahenriques/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/rahenriques/perl5"; export PERL_MM_OPT;
+PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"; export PATH;
+PATH="$HOME/.emacs.d/bin:$PATH"; export PATH;
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh;
