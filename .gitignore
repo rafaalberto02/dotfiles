@@ -25,3 +25,5 @@
 
 !.bookmarks
 !.bookmarks/**
+
+!.gitconfig
