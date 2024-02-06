@@ -5,6 +5,7 @@
 !.alias_config
 !.LESS_TERMCAP
 !.zshenv
+!.gitmodules
 !Brewfile
 !Readme.md
 !fresh-install.sh
