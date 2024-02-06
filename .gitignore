@@ -10,18 +10,7 @@
 !fresh-install.sh
 
 !.config
-
-!.config/nvim
-!.config/nvim/**
-
-!.config/skhd
-!.config/skhd/**
-
-!.config/yabai
-!.config/yabai/**
-
-!.config/alacritty
-!.config/alacritty/**
+!.config/**
 
 !.bookmarks
 !.bookmarks/**

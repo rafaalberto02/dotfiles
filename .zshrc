@@ -54,3 +54,5 @@ PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"; export PATH;
 PATH="$HOME/.emacs.d/bin:$PATH"; export PATH;
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh;
+
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
