@@ -8,4 +8,7 @@
 !Brewfile
 !Readme.md
 !fresh-install.sh
-!*.config/nvim/*
+
+!.config
+!.config/nvim
+!.config/nvim/**
