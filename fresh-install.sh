@@ -2,7 +2,7 @@
 
 echo "Install latest node"
 
-nvm install --latest
+nvm install --lts
 
 echo "Neovim Plugins Support"
 

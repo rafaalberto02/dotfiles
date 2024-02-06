@@ -20,5 +20,8 @@
 !.config/yabai
 !.config/yabai/**
 
+!.config/alacritty
+!.config/alacritty/**
+
 !.bookmarks
 !.bookmarks/**
