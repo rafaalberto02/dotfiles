@@ -1,0 +1,11 @@
+*
+!.gitignore
+!.zshrc
+!.p10k.zsh
+!.alias_config
+!.LESS_TERMCAP
+!.zshenv
+!Brewfile
+!Readme.md
+!fresh-install.sh
+!*.config/nvim/*
