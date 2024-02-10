@@ -1,13 +1,3 @@
-# Homebrew autocomplete
-
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-
 zstyle '*:compinit' arguments -D -i -u -C -w
 
 zstyle ':completion:*' list-colors ''
