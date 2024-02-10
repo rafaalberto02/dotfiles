@@ -1,10 +1,10 @@
-# Colorize the ls output 
+# Colorize the ls output
 alias ls='ls --color=auto'
 
-# Use a long listing format 
+# Use a long listing format
 alias ll='ls -la'
- 
-# Show hidden files 
+
+# Show hidden files
 alias l.='ls -d .* --color=auto'
 
 # Colorize the grep command output for ease of use (good for log files)##
@@ -21,7 +21,7 @@ alias diff='colordiff'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
- 
+
 # Parenting changing perms on / #
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
