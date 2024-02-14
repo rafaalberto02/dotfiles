@@ -49,10 +49,10 @@ require("lazy").setup({
         "SmiteshP/nvim-navic",
         dependencies = "neovim/nvim-lspconfig"
     },
-    {
-        'kevinhwang91/nvim-ufo',
-        dependencies = 'kevinhwang91/promise-async'
-    },
+--    {
+--        'kevinhwang91/nvim-ufo',
+--        dependencies = 'kevinhwang91/promise-async'
+--    },
 
     {
         "iamcco/markdown-preview.nvim",
