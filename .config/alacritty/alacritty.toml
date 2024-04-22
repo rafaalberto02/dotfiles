@@ -2,8 +2,8 @@
 dimensions = { columns = 120, lines = 30 }
 padding = { x = 20, y = 40 }
 decorations = "transparent"
-opacity = 0.70
-blur = true
+opacity = 0.8
+blur = false
 
 [font]
 size = 18

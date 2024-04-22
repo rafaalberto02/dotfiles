@@ -1,9 +1,18 @@
-BASE_PATH="$(brew --prefix fzf)/shell"
+if [ $commands[fzf] ]; then
+    fzf() {
+        unfunction $0
 
-COMPLETION_PATH="$BASE_PATH/completion.zsh"
-BINDINGS_PATH="$BASE_PATH/key-bindings.zsh"
+        BASE_PATH="$(brew --prefix fzf)/shell"
 
-[ -f "$COMPLETION_PATH" ] && source "$COMPLETION_PATH"
-[ -f "$BIDINGS_PATH" ] && source "$BIDINGS_PATH"
+        COMPLETION_PATH="${BASE_PATH}/completion.zsh"
+        BINDINGS_PATH="${BASE_PATH}/key-bindings.zsh"
 
-export FZF_COMPLETION_OPTS='--border --info=inline --multi'
+        [ -f "${COMPLETION_PATH}" ] && source "${COMPLETION_PATH}"
+        [ -f "${BIDINGS_PATH}" ] && source "${BIDINGS_PATH}"
+
+        $0 "$@"
+    }
+
+    export FZF_COMPLETION_OPTS='--border --info=inline --multi'
+fi
+
