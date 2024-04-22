@@ -1,3 +1,3 @@
 require("rahenriques.remap")
-require("rahenriques.config")
 require("rahenriques.lazy")
+require("rahenriques.config")

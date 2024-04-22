@@ -18,6 +18,9 @@ vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
+vim.o.incsearch = true
+vim.o.hlsearch = true
+
 vim.o.termguicolors = true
 
 vim.o.scrolloff = 10
@@ -27,6 +30,11 @@ vim.o.encoding = "utf-8"
 vim.o.updatetime = 50
 
 vim.o.colorcolumn = "80"
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
 
 vim.g.python3_host_prog = "/usr/bin/python3"
 vim.g.ruby_host_prog = "/opt/homebrew/opt/ruby/bin/ruby"
