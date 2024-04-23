@@ -15,6 +15,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    {
         'hrsh7th/nvim-cmp',
         dependencies = {
             'neovim/nvim-lspconfig',

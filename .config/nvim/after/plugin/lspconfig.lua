@@ -1,7 +1,5 @@
 require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls" },
-})
+require("mason-lspconfig").setup()
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -32,6 +30,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('lspconfig')['lua_ls'].setup {
-    capabilities = capabilities
+local servers = {
+    lua_ls = {
+        settings = {
+            Lua = {
+                runtime = { version = 'LuaJIT', },
+                diagnostics = { globals = { 'vim', 'require', 'on_attach' }, },
+                workspace = { library = vim.api.nvim_get_runtime_file("", true), },
+                telemetry = { enable = false, },
+            },
+        },
+    },
+    bashls = {},
+    jsonls = {},
 }
+
+local lsp_config = require("lspconfig")
+
+for name, user_opts in pairs(servers) do
+  local opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+
+  opts = vim.tbl_deep_extend('force', opts, user_opts)
+  lsp_config[name].setup(opts)
+end
