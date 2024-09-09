@@ -4,7 +4,7 @@
 !.gitmodules
 !Brewfile
 !Readme.md
-!fresh-install.sh
+!.install.sh
 
 !.config/.gitignore
 
