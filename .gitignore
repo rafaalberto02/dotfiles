@@ -4,11 +4,9 @@
 !.gitmodules
 !Brewfile
 !Readme.md
+
 !.install.sh
 
 !.config/.gitignore
-
-!.bookmarks
-!.bookmarks/**
 
 !.gitconfig
