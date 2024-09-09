@@ -26,3 +26,6 @@ alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
+
+# SSH
+alias ssh='TERM=xterm-256color ssh'

@@ -1,6 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
-
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -41,18 +38,25 @@ local servers = {
             },
         },
     },
-    bashls = {},
-    jsonls = {},
 }
+
+local ensure_installed = {}
 
 local lsp_config = require("lspconfig")
 
 for name, user_opts in pairs(servers) do
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+    local opts = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }
 
-  opts = vim.tbl_deep_extend('force', opts, user_opts)
-  lsp_config[name].setup(opts)
+    opts = vim.tbl_deep_extend('force', opts, user_opts)
+
+    lsp_config[name].setup(opts)
+
+    table.insert(ensure_installed, name)
 end
+
+require("mason").setup()
+require("mason-lspconfig").setup({ensure_installed = ensure_installed})
+

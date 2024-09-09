@@ -12,6 +12,30 @@ nvm() {
     nvm "$@"
 }
 
+npm() {
+    unset -f npm
+    load-nvm
+    npm "$@"
+}
+
+npx() {
+    unset -f npx
+    load-nvm
+    npx "$@"
+}
+
+node() {
+    unset -f node
+    load-nvm
+    node "$@"
+}
+
+ng() {
+    unset -f ng
+    load-nvm
+    ng "$@"
+}
+
 if [ $commands[ng] ]; then
     ng() {
         unfunction $0
