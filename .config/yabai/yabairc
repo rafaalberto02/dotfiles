@@ -46,3 +46,4 @@ yabai -m rule --add app="^Microsoft Remote Desktop$" manage=off
 yabai -m rule --add app="^Clock$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^FortiClient$" manage=off
+yabai -m rule --add app="^Windows App$" manage=off
