@@ -4,5 +4,5 @@ source "$CURRENT/flags.zsh"
 source "$CURRENT/nvm.zsh"
 source "$CURRENT/path.zsh"
 source "$CURRENT/less_termcap.zsh"
-source "$CURRENT/1password.zsh"
+source "$CURRENT/bitwarden.zsh"
 
