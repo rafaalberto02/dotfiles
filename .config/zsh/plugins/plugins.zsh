@@ -28,3 +28,5 @@ function source_plugin() {
 source_plugin "spaceship-prompt/spaceship-prompt" "spaceship.zsh"
 source_plugin "zsh-users/zsh-autosuggestions" "zsh-autosuggestions.zsh"
 source_plugin "zsh-users/zsh-syntax-highlighting" "zsh-syntax-highlighting.zsh"
+
+. $CONFIGS/zsh-autosuggestions.config.zsh
