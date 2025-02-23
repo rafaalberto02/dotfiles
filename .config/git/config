@@ -10,9 +10,3 @@
 
 [core]
 	editor = vim
-
-[includeIf "gitdir:~/repositories/raizen-it/"]
-    path = .gitconfig_raizen-it
-
-[includeIf "gitdir:~/repositories/raizen/"]
-    path = .gitconfig_raizen
