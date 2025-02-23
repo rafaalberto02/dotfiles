@@ -79,7 +79,8 @@
 			'';
 		system.activationScripts.postUserActivation.text = ''
 			/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u;
-		defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false            
+
+            defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false            
 			defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false    
 			defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false       
 			defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false 

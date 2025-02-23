@@ -3,6 +3,7 @@ vim.o.guicursor = ""
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.incsearch = true
+
 vim.o.number = true
 vim.o.relativenumber = true
 
@@ -28,6 +29,6 @@ vim.o.updatetime = 50
 
 vim.o.colorcolumn = "80"
 
-vim.g.python3_host_prog = "/usr/bin/python3"
-vim.g.ruby_host_prog = "/opt/homebrew/opt/ruby/bin/ruby"
-vim.g.perl_host_prog = "/opt/homebrew/bin/perl"
+-- transparent background
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
