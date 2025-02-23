@@ -1,5 +1,5 @@
-REPOS="${0:a:h}/repositories"
-CONFIGS="${0:a:h}/configs"
+local REPOS="${0:a:h}/repositories"
+local CONFIGS="${0:a:h}/configs"
 
 function source_plugin() {
   local repo=$1

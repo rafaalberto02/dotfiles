@@ -1,18 +1,34 @@
-if [ $commands[fzf] ]; then
-    fzf() {
-        unfunction $0
+local REPOS="${0:a:h}/repositories/fzf"
 
-        BASE_PATH="$(brew --prefix fzf)/shell"
+[ ! -d $REPOS ] && mkdir -p $REPOS
 
-        COMPLETION_PATH="${BASE_PATH}/completion.zsh"
-        BINDINGS_PATH="${BASE_PATH}/key-bindings.zsh"
+local COMPLETION="$REPOS/completion.zsh"
 
-        [ -f "${COMPLETION_PATH}" ] && source "${COMPLETION_PATH}"
-        [ -f "${BIDINGS_PATH}" ] && source "${BIDINGS_PATH}"
+if [[ ! -f $COMPLETION ]]; then
+    echo "Downloading $COMPLETION..."
 
-        $0 "$@"
-    }
+    wget --quiet -P $REPOS https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/completion.zsh
 
-    export FZF_COMPLETION_OPTS='--border --info=inline --multi'
+    autoload -U zrecompile
+
+    zrecompile -pq $COMPLETION
 fi
 
+local KEY_BINDINGS="$REPOS/key-bindings.zsh"
+
+if [[ ! -f $KEY_BINDINGS ]]; then
+    echo "Downloading $KEY_BINDINGS..."
+
+    wget --quiet -P $REPOS https://raw.githubusercontent.com/junegunn/fzf/refs/heads/master/shell/key-bindings.zsh
+
+    autoload -U zrecompile
+
+    zrecompile -pq $KEY_BINDINGS
+fi
+
+fpath+=$REPOS
+
+. $COMPLETION
+. $KEY_BINDINGS
+
+export FZF_COMPLETION_OPTS='--border --info=inline --multi'
