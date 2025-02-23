@@ -37,10 +37,19 @@
 			pkgs.stow
 		];
 
+        environment = {
+            variables = {
+                HOMEBREW_NO_ANALYTICS = "1";
+                HOMEBREW_NO_INSECURE_REDIRECT = "1";
+                HOMEBREW_NO_EMOJI = "1";
+                HOMEBREW_NO_ENV_HINTS = "0";
+            };
+        };
+
 		homebrew = {
-			enable = true;
-			casks = [
-				"libreoffice"
+            enable = true;
+            casks = [
+                "libreoffice"
 				"tidal"
 				"whatsapp"
 				"microsoft-teams"
@@ -48,13 +57,15 @@
 				"bitwarden"
 				"firefox"
 			];
-			onActivation.cleanup = "zap";
-			onActivation.autoUpdate = true;
-			onActivation.upgrade = true;
+            onActivation = {
+                autoUpdate = true;
+                upgrade = true;
+                cleanup = "zap";
+            };
+            caskArgs.require_sha = true;
 		};
 		
         fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
-
 
 		nixpkgs.config.allowUnfree = true;
 

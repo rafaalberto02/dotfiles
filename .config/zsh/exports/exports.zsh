@@ -5,4 +5,4 @@ source "$CURRENT/nvm.zsh"
 source "$CURRENT/path.zsh"
 source "$CURRENT/less_termcap.zsh"
 source "$CURRENT/bitwarden.zsh"
-
+source "$CURRENT/brew.zsh"

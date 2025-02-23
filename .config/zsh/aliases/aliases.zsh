@@ -29,3 +29,5 @@ alias chgrp='chgrp --preserve-root'
 
 # SSH
 alias ssh='TERM=xterm-256color ssh'
+
+alias rebuild='darwin-rebuild switch --flake "$(readlink -f ~/.config/nix-darwin)"'
