@@ -18,6 +18,7 @@
       "thunderbird"
       "bitwarden"
       "firefox"
+      "windows-app"
     ];
     onActivation = {
       autoUpdate = true;
