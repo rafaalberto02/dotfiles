@@ -1,8 +1,7 @@
-CURRENT="${0:a:h}"
+local CURRENT_EXPORTS="$HOME/.config/zsh/exports"
 
-source "$CURRENT/flags.zsh"
-source "$CURRENT/nvm.zsh"
-source "$CURRENT/path.zsh"
-source "$CURRENT/less_termcap.zsh"
-source "$CURRENT/bitwarden.zsh"
-source "$CURRENT/brew.zsh"
+source "$CURRENT_EXPORTS/flags.zsh"
+source "$CURRENT_EXPORTS/less_termcap.zsh"
+source "$CURRENT_EXPORTS/bitwarden.zsh"
+
+unset CURRENT_EXPORTS
