@@ -1,44 +1,44 @@
 {
-	description = "nix-darwin system flake";
+  description = "nix-darwin system flake";
 
-	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-		
-		nix-darwin.url = "github:LnL7/nix-darwin/master";
-		nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-		mac-app-util.url = "github:hraban/mac-app-util";
+    nix-darwin.url = "github:LnL7/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-		nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-	};
+    mac-app-util.url = "github:hraban/mac-app-util";
 
-	outputs = inputs@{ self, nixpkgs, nix-darwin, mac-app-util, nix-homebrew }:
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+  };
 
-	let
-	configuration = { ... }: {
-        environment.etc.nix-darwin.source = "/Users/rahenriques/.config/nix-darwin/";
-		
-        system.configurationRevision = self.rev or self.dirtyRev or null;
-        system.stateVersion = 6;
-	};
-	in
-	{
-		darwinConfigurations."Rafaels-Mac-mini" = nix-darwin.lib.darwinSystem {
-			modules = [ 
-                ./modules
-				configuration 
-				mac-app-util.darwinModules.default
-				nix-homebrew.darwinModules.nix-homebrew
-				{
-					nix-homebrew = {
-						enable = true;
-						enableRosetta = true;
-						user = "rahenriques";
-					};
-				}];
-		};
+  outputs = inputs@{ self, nixpkgs, nix-darwin, mac-app-util, nix-homebrew }:
 
-		darwinPackages = self.darwinConfigurations."Rafaels-Mac-mini".pkgs;
-	};
+    let
+    configuration = { ... }: {
+      environment.etc.nix-darwin.source = "/Users/rahenriques/.config/nix-darwin/";
+
+      system.configurationRevision = self.rev or self.dirtyRev or null;
+      system.stateVersion = 6;
+    };
+  in
+  {
+    darwinConfigurations."Rafaels-Mac-mini" = nix-darwin.lib.darwinSystem {
+      modules = [ 
+        ./modules
+        configuration 
+        mac-app-util.darwinModules.default
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = "rahenriques";
+          };
+        }];
+    };
+
+    darwinPackages = self.darwinConfigurations."Rafaels-Mac-mini".pkgs;
+  };
 }
 
