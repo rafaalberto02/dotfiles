@@ -1,1 +1,1 @@
-[ -f ~/.bitwarden-ssh-agent.sock ] && export SSH_AUTH_SOCK=
+export SSH_AUTH_SOCK=/Users/rahenriques/.bitwarden-ssh-agent.sock
