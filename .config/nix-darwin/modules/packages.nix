@@ -21,8 +21,13 @@
     stow
     ripgrep
     kitty
+    lua
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+
+  environment.variables = {
+    LUA_DIR = "${pkgs.lua}";
+  };
 }
 

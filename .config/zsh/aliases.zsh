@@ -1,10 +1,6 @@
 # Colorize the ls output
 alias ls='ls --color=auto'
-
-# Use a long listing format
-alias ll='ls -la'
-
-# Show hidden files
+alias ll='ls -la --color=auto'
 alias l.='ls -d .* --color=auto'
 
 # Colorize the grep command output for ease of use (good for log files)##
