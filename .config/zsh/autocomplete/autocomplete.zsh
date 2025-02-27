@@ -1,1 +1,5 @@
-# source "${0:a:h}/fzf.zsh"
+local AUTOCOMPLETE_PATH="$HOME/.config/zsh/autocomplete"
+
+source "$AUTOCOMPLETE_PATH/fzf.zsh"
+
+unset AUTOCOMPLETE_PATH

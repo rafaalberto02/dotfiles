@@ -1,59 +1,46 @@
+# ADVICE!!!
+#
+# zcompile-many function is declared at config.zsh
+
 local CURRENT_PLUGINS="$HOME/.dotfiles/.config/zsh/plugins"
 
-local REPOS="$CURRENT_PLUGINS/repositories"
-local CONFIGS="$CURRENT_PLUGINS/configs"
+local PLUGINS_REPOS="$CURRENT_PLUGINS/repositories"
+local PLUGINS_CONFIGS="$CURRENT_PLUGINS/configs"
 
-function source_plugin() {
-  local repo=$1
-  local entryfile=$2
+[ ! -d $PLUGINS_REPOS ] && mkdir -p $PLUGINS_REPOS
+
+if [[ ! -e $PLUGINS_REPOS/zsh-syntax-highlighting ]]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $PLUGINS_REPOS/zsh-syntax-highlighting
   
-  local plugdir="$REPOS/$repo"
-  local entrypoint="$plugdir/$entryfile"
-
-  if [[ ! -d $plugdir ]]; then
-    echo "Cloning $repo..."
-
-    git clone --quiet --depth 1 --recursive --shallow-submodules  https://github.com/$repo $plugdir
-    
-    autoload -U zrecompile
-
-    zrecompile -pq "$entrypoint"
-  fi
-  
-  fpath+=$plugdir
-  
-  . $entrypoint
-
-  unset repo
-  unset entryfile
-  unset plugdir
-  unset entrypoint
-}
-
-[ ! -d $REPOS ] && mkdir -p $REPOS
-
-if [[ ! -e $REPOS/zsh-syntax-highlighting ]]; then
-  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $REPOS/zsh-syntax-highlighting
-  
-  zcompile-many $REPOS/zsh-syntax-highlighting/{zsh-syntax-highlighting.zsh,highlighters/*/*.zsh}
-
-  source $REPOS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  zcompile-many $PLUGINS_REPOS/zsh-syntax-highlighting/{zsh-syntax-highlighting.zsh,highlighters/*/*.zsh}
 fi
 
-if [[ ! -e $REPOS/zsh-autosuggestions ]]; then
-  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $REPOS/zsh-autosuggestions
+if [[ ! -e $PLUGINS_REPOS/zsh-autosuggestions ]]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $PLUGINS_REPOS/zsh-autosuggestions
 
-  zcompile-many $REPOS/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
-
-  source $REPOS/zsh-autosuggestions/zsh-autosuggestions.zsh
+  zcompile-many $PLUGINS_REPOS/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
 fi
 
-# source_plugin "spaceship-prompt/spaceship-prompt" "spaceship.zsh"
-# source_plugin "zsh-users/zsh-autosuggestions" "zsh-autosuggestions.zsh"
-# source_plugin "zsh-users/zsh-syntax-highlighting" "zsh-syntax-highlighting.zsh"
+if [[ ! -e $PLUGINS_REPOS/zsh-autosuggestions ]]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $PLUGINS_REPOS/zsh-autosuggestions
 
-# . $CONFIGS/zsh-autosuggestions.config.zsh
+  zcompile-many $PLUGINS_REPOS/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
+fi
+
+if [[ ! -e $PLUGINS_REPOS/spaceship-prompt ]]; then
+  git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git $PLUGINS_REPOS/spaceship-prompt
+
+  zcompile-many $PLUGINS_REPOS/spaceship-prompt/{spaceship.zsh,lib/**/*.zsh,sections/**/*.zsh}
+fi
+
+# source $PLUGINS_REPOS/spaceship-prompt/spaceship.zsh
+
+source $PLUGINS_REPOS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PLUGINS_REPOS/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source $PLUGINS_CONFIGS/zsh-autosuggestions.config.zsh
+source $PLUGINS_CONFIGS/spaceship.config.zsh
 
 unset CURRENT_PLUGINS
-unset REPOS
-unset CONFIGS
+unset PLUGINS_REPOS
+unset PLUGINS_CONFIGS

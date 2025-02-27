@@ -19,6 +19,8 @@
     monitorcontrol
     btop
     stow
+    ripgrep
+    kitty
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

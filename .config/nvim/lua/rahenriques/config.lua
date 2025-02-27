@@ -30,7 +30,10 @@ vim.o.updatetime = 50
 vim.o.colorcolumn = "80"
 
 -- transparent background
+vim.cmd('colorscheme habamax')
+
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 
 vim.g.editorconfig = true
+
