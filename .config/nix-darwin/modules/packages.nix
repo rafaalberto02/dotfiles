@@ -22,6 +22,8 @@
     ripgrep
     kitty
     lua
+    yq
+    jq
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

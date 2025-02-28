@@ -1,9 +1,5 @@
 if [[ ! -n $TMUX  ]]; then
-    local CURRENT_FUNCTIONS="$HOME/.config/zsh/functions"
-
-    source "$CURRENT_FUNCTIONS/auto_start_tmux.zsh"
-
-    unset CURRENT_FUNCTIONS
+    source "$HOME/.config/zsh/functions/auto_start_tmux.zsh"
 else
     local CURRENT_CONFIG="$HOME/.config/zsh"
 
@@ -21,9 +17,6 @@ else
 
     source "$CURRENT_CONFIG/exports.zsh"
     source "$CURRENT_CONFIG/aliases.zsh"
-
-    unfunction zcompile-many
-    unset CURRENT_CONFIG
 
     # Keybindings
     bindkey '^p' history-search-backward
@@ -48,4 +41,7 @@ else
     zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
     set -o vi
+
+    unfunction zcompile-many
+    unset CURRENT_CONFIG
 fi
