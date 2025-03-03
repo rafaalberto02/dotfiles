@@ -11,12 +11,11 @@ else
     autoload -Uz compinit && compinit
     [[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || zcompile-many ~/.zcompdump
 
-    source "$CURRENT_CONFIG/autocomplete/autocomplete.zsh"
-    source "$CURRENT_CONFIG/plugins/plugins.zsh"
-    source "$CURRENT_CONFIG/functions/functions.zsh"
-
     source "$CURRENT_CONFIG/exports.zsh"
     source "$CURRENT_CONFIG/aliases.zsh"
+
+    source "$CURRENT_CONFIG/plugins/plugins.zsh"
+    source "$CURRENT_CONFIG/functions/functions.zsh"
 
     # Keybindings
     bindkey '^p' history-search-backward
