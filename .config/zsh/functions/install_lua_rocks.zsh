@@ -4,6 +4,8 @@ if [ ! -f $HOME/.local/bin/luarocks ]; then
     wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz -P /tmp
 
     tar zxpf /tmp/luarocks-3.11.1.tar.gz -C /tmp
+
+    LUA_DIR=/usr/local
     
     (cd /tmp/luarocks-3.11.1 && \
         ./configure --with-lua=$LUA_DIR --with-lua-include=$LUA_DIR/include --with-lua-lib=$LUA_DIR/lib --prefix=$HOME/.local && \
