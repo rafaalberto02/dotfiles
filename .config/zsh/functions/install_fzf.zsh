@@ -6,8 +6,8 @@ if [[ ! -e $HOME/.local/bin/fzf ]]; then
 
     (cd /tmp/fzf && \
         make clean install && \
-        cp -r bin/ $HOME/.local && \
-        cp -r shell/ $HOME/.local)
+        cp -R bin $HOME/.local && \
+        cp -R shell $HOME/.local)
 
     zcompile-many $HOME/.local/shell/completion.zsh  
     zcompile-many $HOME/.local/shell/key-bindings.zsh

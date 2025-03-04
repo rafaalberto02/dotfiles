@@ -6,7 +6,6 @@
     git
     python3
     alacritty
-    fzf
     ripgrep
     wget
     skhd
@@ -24,6 +23,7 @@
     lua
     yq
     jq
+    go
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

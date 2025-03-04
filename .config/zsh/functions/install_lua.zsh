@@ -14,7 +14,7 @@ if [ ! -f $HOME/.local/bin/lua5.1 ]; then
 
     LUA_PLAT=linux
 
-    if [ $(uname -s) = 'Darwin']; then
+    if [[ $(uname -s) = 'Darwin' ]]; then
         LUA_PLAT=macosx
     fi
     
