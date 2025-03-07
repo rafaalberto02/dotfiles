@@ -1,5 +1,3 @@
-local CURRENT_PLUGINS="$HOME/.dotfiles/.config/zsh/plugins"
-
 if [[ ! -e $HOME/.local/bin/fzf ]]; then
     git clone --depth=1 --single-branch https://github.com/junegunn/fzf /tmp/fzf
 

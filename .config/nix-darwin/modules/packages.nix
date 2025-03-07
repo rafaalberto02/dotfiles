@@ -24,6 +24,9 @@
     yq
     jq
     go
+    bat
+    delta
+    chafa
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
