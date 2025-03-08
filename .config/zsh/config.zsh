@@ -23,7 +23,7 @@ else
     bindkey '^n' history-search-forward
 
     functions find-and-create-session() {
-        local selectedPath=$(find -L $HOME/.personal $HOME/.config  -depth 1 -type d -print | fzf)
+        local selectedPath=$(find -L $HOME/.personal $HOME/.config -maxdepth 1 -type d -print | fzf)
 
         if [[ -d $selectedPath ]]; then
             selectedPath=$(realpath $selectedPath)
