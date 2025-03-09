@@ -73,7 +73,9 @@ return {
 			vim.opt.signcolumn = "yes"
 		end,
 		config = function()
-			local lsp_defaults = require("lspconfig").util.default_config
+			local lsp = require("lspconfig")
+			local lsp_defaults = lsp.util.default_config
+
 			lsp_defaults.capabilities =
 				vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
@@ -97,27 +99,21 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"jsonls",
 					"bashls",
 					"clangd",
-					"eslint",
-					"jsonls",
+					"biome",
+                    "ts_ls",
+                    "jsonls"
 				},
 				handlers = {
 					function(server_name)
-						require("lspconfig")[server_name].setup({})
+						require("lspconfig")[server_name].setup({
+                            capabilities = lsp_defaults.capabilities,
+                        })
 					end,
 				},
 			})
 
-			local lsp = require("lspconfig")
-
-			lsp.lua_ls.setup({})
-			lsp.jsonls.setup({})
-			lsp.bashls.setup({})
-			lsp.clangd.setup({})
-			lsp.eslint.setup({})
-			lsp.jsonls.setup({})
 
 			lsp.lua_ls.setup({
 				on_init = function(client)
@@ -187,7 +183,9 @@ return {
 					lua = { "stylua" },
 					python = { "isort" },
 					rust = { "rustfmt", lsp_format = "fallback" },
-					javascript = { "prettierd" },
+					javascript = { "biome" },
+					typescript = { "biome" },
+					json = { "biome" },
 				},
 			})
 		end,
