@@ -6,5 +6,6 @@ source "$CURRENT_FUNCTIONS/install_fzf.zsh"
 source "$CURRENT_FUNCTIONS/install_lua.zsh"
 source "$CURRENT_FUNCTIONS/install_lua_rocks.zsh"
 source "$CURRENT_FUNCTIONS/install_nvm.zsh"
+source "$CURRENT_FUNCTIONS/install_rust.zsh"
 
 unset CURRENT_FUNCTIONS

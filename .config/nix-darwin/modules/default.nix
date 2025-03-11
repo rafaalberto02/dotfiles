@@ -1,6 +1,6 @@
 {
   imports = [ 
-    ./packages.nix 
+    ./shared/packages.nix 
     ./homebrew.nix 
     ./system.nix 
   ];
