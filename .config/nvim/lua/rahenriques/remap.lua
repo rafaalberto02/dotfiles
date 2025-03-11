@@ -11,3 +11,6 @@ vim.keymap.set('n','<Leader>yy','"+yy')
 vim.keymap.set('n','<Leader>Y','"+Y')
 vim.keymap.set('x','<Leader>y','"+y')
 vim.keymap.set('x','<Leader>Y','"+Y')
+
+vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-auto-session<CR>")
