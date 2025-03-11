@@ -19,10 +19,12 @@
       "bitwarden"
       "firefox"
       "windows-app"
+      "docker"
+      "eloston-chromium"
     ];
     onActivation = {
       autoUpdate = true;
-      upgrade = false;
+      upgrade = true;
       cleanup = "zap";
     };
     caskArgs.require_sha = true;

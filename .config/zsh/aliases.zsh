@@ -18,11 +18,6 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
 
-# Parenting changing perms on / #
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
-
 # SSH
 alias ssh='TERM=xterm-256color ssh'
 

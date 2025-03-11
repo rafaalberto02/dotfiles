@@ -1,6 +1,6 @@
 vim.o.guicursor = ""
 
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.incsearch = true
 
@@ -29,14 +29,27 @@ vim.o.updatetime = 50
 
 vim.o.colorcolumn = "80"
 
--- transparent background
+vim.o.showmode = false
+
 vim.cmd("colorscheme habamax")
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- transparent background
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 vim.g.editorconfig = true
 
 -- Set Netrw options
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 1
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = vim.api.nvim_create_augroup('HighlightYank', {}),
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = 'IncSearch',
+            timeout = 40,
+        })
+    end,
+})

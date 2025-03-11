@@ -27,6 +27,8 @@
     bat
     delta
     chafa
+    cmake
+    ninja
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
