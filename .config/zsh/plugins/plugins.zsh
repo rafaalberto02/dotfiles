@@ -2,9 +2,9 @@
 #
 # zcompile-many function is declared at config.zsh
 
-local CURRENT_PLUGINS="$HOME/.dotfiles/.config/zsh/plugins"
+local CURRENT_PLUGINS="$ZSH_CONFIG/plugins"
 
-local PLUGINS_REPOS="$CURRENT_PLUGINS/repositories"
+local PLUGINS_REPOS="$HOME/.local/shell/plugins"
 local PLUGINS_CONFIGS="$CURRENT_PLUGINS/configs"
 
 [ ! -d $PLUGINS_REPOS ] && mkdir -p $PLUGINS_REPOS

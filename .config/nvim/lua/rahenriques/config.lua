@@ -30,10 +30,13 @@ vim.o.updatetime = 50
 vim.o.colorcolumn = "80"
 
 -- transparent background
-vim.cmd('colorscheme habamax')
+vim.cmd("colorscheme habamax")
 
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 vim.g.editorconfig = true
 
+-- Set Netrw options
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 1
