@@ -1,53 +1,68 @@
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "williamboman/mason-lspconfig.nvim", "saghen/blink.cmp" },
+	dependencies = {
+		{ "saghen/blink.cmp" },
+		{ "williamboman/mason.nvim" },
+		{ "williamboman/mason-lspconfig.nvim" },
+	},
 	cmd = { "LspInfo", "LspInstall", "LspStart" },
 	event = { "BufReadPre", "BufNewFile" },
+	init = function()
+		vim.opt.signcolumn = "yes"
+	end,
 	config = function()
 		local lsp = require("lspconfig")
 		local blink = require("blink.cmp")
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		local lsp_defaults = lsp.util.default_config
+		local vim_capabilities = vim.lsp.protocol.make_client_capabilities()
 
-		require("mason-lspconfig").setup_handlers({
-			function(server_name)
-				lsp[server_name].setup({
-					capabilities = blink.get_lsp_capabilities(capabilities),
-				})
-			end,
-		})
+		local capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, vim_capabilities)
 
-		lsp.lua_ls.setup({
-			settings = {
-				Lua = {
-					runtime = {
-						version = "LuaJIT",
-						path = vim.split(package.path, ";"),
-					},
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						library = { vim.env.VIMRUNTIME },
-						checkThirdParty = false,
-					},
-					telemetry = {
-						enable = false,
-					},
-				},
-			},
-		})
+		capabilities = vim.tbl_deep_extend("force", capabilities, blink.get_lsp_capabilities({}, false))
 
-		lsp.jsonls.setup({
-			settings = {
-				json = {
-					schemas = {
-						{
-							fileMatch = { "package.json" },
-							url = "https://json.schemastore.org/package.json",
+		require("mason-lspconfig").setup({
+			ensure_installed = {},
+			handlers = {
+				function(server_name)
+					lsp[server_name].setup({})
+				end,
+				["lua_ls"] = function()
+					lsp.lua_ls.setup({
+						settings = {
+							Lua = {
+								runtime = {
+									version = "LuaJIT",
+									path = vim.split(package.path, ";"),
+								},
+								diagnostics = {
+									globals = { "vim" },
+								},
+								workspace = {
+									library = { vim.env.VIMRUNTIME },
+									checkThirdParty = false,
+								},
+								telemetry = {
+									enable = false,
+								},
+							},
 						},
-					},
-				},
+					})
+				end,
+				["jsonls"] = function()
+					lsp.jsonls.setup({
+						settings = {
+							json = {
+								schemas = {
+									{
+										fileMatch = { "package.json" },
+										url = "https://json.schemastore.org/package.json",
+									},
+								},
+							},
+						},
+					})
+				end,
 			},
 		})
 

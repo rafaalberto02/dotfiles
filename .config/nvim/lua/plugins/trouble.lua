@@ -1,6 +1,6 @@
 return {
 	"folke/trouble.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "LSPAttach" },
 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	opts = {
 		modes = {

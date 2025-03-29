@@ -4,7 +4,12 @@
     neovim
     tmux
     git
-    python3
+
+    (pkgs.python3.withPackages (python-pkgs: [
+      python-pkgs.pip
+      python-pkgs.setuptools
+    ]))
+
     alacritty
     ripgrep
     wget
@@ -33,6 +38,7 @@
     omnisharp-roslyn
     direnv
     fd
+    discord
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

@@ -3,7 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = { { "nvim-treesitter/nvim-treesitter-context" } },
 		build = ":TSUpdate",
-		event = "VeryLazy",
+		event = { "BufReadPre", "BufNewFile" },
 		lazy = vim.fn.argc(-1) == 0,
 		init = function(plugin)
 			-- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early

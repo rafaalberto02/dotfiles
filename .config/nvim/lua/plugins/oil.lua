@@ -1,28 +1,21 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {},
-	dependencies = { { "echasnovski/mini.icons", opts = {} } },
-	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+	dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
 	lazy = false,
 	configuration = function()
 		require("oil").setup({
-			-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
-			-- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
 			default_file_explorer = true,
-			-- Id is automatically added at the beginning, and name at the end
-			-- See :help oil-columns
 			columns = {
 				"icon",
 				"permissions",
 				"size",
 				"mtime",
 			},
-			-- Buffer-local options to use for oil buffers
 			buf_options = {
 				buflisted = false,
 				bufhidden = "hide",
 			},
-			-- Window-local options to use for oil buffers
 			win_options = {
 				wrap = false,
 				signcolumn = "no",
@@ -34,9 +27,9 @@ return {
 				concealcursor = "nvic",
 			},
 			-- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
-			delete_to_trash = false,
+			delete_to_trash = true,
 			-- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
-			skip_confirm_for_simple_edits = false,
+			skip_confirm_for_simple_edits = true,
 			-- Selecting a new/moved/renamed file or directory will prompt you to save changes first
 			-- (:help prompt_save_on_select_new_entry)
 			prompt_save_on_select_new_entry = true,
@@ -57,7 +50,7 @@ return {
 			-- Set to `false` to disable, or "name" to keep it on the file names
 			constrain_cursor = "editable",
 			-- Set to true to watch the filesystem for changes and reload oil
-			watch_for_changes = false,
+			watch_for_changes = true,
 			-- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
 			-- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
 			-- Additionally, if it is a string that matches "actions.<name>",
@@ -89,8 +82,7 @@ return {
 				show_hidden = true,
 				-- This function defines what is considered a "hidden" file
 				is_hidden_file = function(name, _)
-					local m = name:match("^%.")
-					return m ~= nil
+					return false
 				end,
 				-- This function defines what will never be shown, even when `show_hidden` is set
 				is_always_hidden = function(name, _)
