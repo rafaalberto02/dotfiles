@@ -152,22 +152,6 @@ cmd - j : yabai -m window --focus south
 cmd - k : yabai -m window --focus north
 cmd - l : yabai -m window --focus east
 
-cmd - left : yabai -m window --focus west
-cmd - down : yabai -m window --focus south
-cmd - up : yabai -m window --focus north
-cmd - right : yabai -m window --focus east
-
-## Move window into space
-shift + cmd - h : yabai -m window --swap west
-shift + cmd - j : yabai -m window --swap south
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - l : yabai -m window --swap east
-
-shift + cmd - left : yabai -m window --swap west
-shift + cmd - down : yabai -m window --swap south
-shift + cmd - up : yabai -m window --swap north
-shift + cmd - right : yabai -m window --swap east
-
 ### Rotate windows
 shift + alt - r : yabai -m space --rotate 270
 shift + alt - y : yabai -m space --mirror y-axis
@@ -186,11 +170,6 @@ ctrl + cmd - h : yabai -m window --warp west
 ctrl + cmd - j : yabai -m window --warp south
 ctrl + cmd - k : yabai -m window --warp north
 ctrl + cmd - l : yabai -m window --warp east
-
-ctrl + cmd - left : yabai -m window --warp west
-ctrl + cmd - down : yabai -m window --warp south
-ctrl + cmd - up : yabai -m window --warp north
-ctrl + cmd - right : yabai -m window --warp east
 
 ## Change monitor focus
 cmd - 1  : yabai -m display --focus 1

@@ -29,6 +29,10 @@
     chafa
     cmake
     ninja
+    mono
+    omnisharp-roslyn
+    direnv
+    fd
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

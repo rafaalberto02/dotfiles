@@ -21,6 +21,8 @@
       "windows-app"
       "docker"
       "eloston-chromium"
+      "devtunnel"
+      "mono-mdk"
     ];
     onActivation = {
       autoUpdate = true;

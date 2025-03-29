@@ -7,5 +7,8 @@ source "$CURRENT_FUNCTIONS/install_lua.zsh"
 source "$CURRENT_FUNCTIONS/install_lua_rocks.zsh"
 source "$CURRENT_FUNCTIONS/install_nvm.zsh"
 source "$CURRENT_FUNCTIONS/install_rust.zsh"
+source "$CURRENT_FUNCTIONS/install_dotnet_completions.zsh"
+
+zsh-defer eval "$(direnv hook zsh)"
 
 unset CURRENT_FUNCTIONS
