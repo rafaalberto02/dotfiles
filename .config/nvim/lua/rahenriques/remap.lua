@@ -28,11 +28,6 @@ vim.keymap.set('x','<Leader>Y','"+Y')
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-auto-session<CR>")
 
-vim.keymap.set('c', '<Down>', '<NOP>')
-vim.keymap.set('c', '<Left>', '<NOP>')
-vim.keymap.set('c', '<Right>', '<NOP>')
-vim.keymap.set('c', '<Up>', '<NOP>')
-
 vim.keymap.set('i', '<Down>', '<NOP>')
 vim.keymap.set('i', '<Left>', '<NOP>')
 vim.keymap.set('i', '<Right>', '<NOP>')

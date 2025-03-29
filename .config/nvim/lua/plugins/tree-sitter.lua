@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = { { "nvim-treesitter/nvim-treesitter-context" } },
 		build = ":TSUpdate",
 		event = "VeryLazy",
 		lazy = vim.fn.argc(-1) == 0,
@@ -32,6 +33,15 @@ return {
 				highlight = { enable = true },
 				indent = { enable = true },
 				fold = { enable = true, auto_open = false, auto_close = false },
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+						init_selection = "gnn",
+						node_incremental = "grn",
+						scope_incremental = "grc",
+						node_decremental = "grm",
+					},
+				},
 				disable = function(_, buf)
 					local max_filesize = 100 * 1024 -- 100 KB
 					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))

@@ -1,259 +1,71 @@
 return {
-	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		opts = {},
-	},
+	"neovim/nvim-lspconfig",
+	dependencies = { "williamboman/mason-lspconfig.nvim", "saghen/blink.cmp" },
+	cmd = { "LspInfo", "LspInstall", "LspStart" },
+	event = { "BufReadPre", "BufNewFile" },
+	config = function()
+		local lsp = require("lspconfig")
+		local blink = require("blink.cmp")
 
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "L3MON4D3/LuaSnip" },
-		},
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			local luasnip = require("luasnip")
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-			local cmp = require("cmp")
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-u>"] = cmp.mapping.scroll_docs(-4),
-					["<C-d>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = true,
-					}),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-				},
-			})
-		end,
-	},
+		require("mason-lspconfig").setup_handlers({
+			function(server_name)
+				lsp[server_name].setup({
+					capabilities = blink.get_lsp_capabilities(capabilities),
+				})
+			end,
+		})
 
-	-- LSP
-	{
-		"neovim/nvim-lspconfig",
-		cmd = { "LspInfo", "LspInstall", "LspStart" },
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
-		},
-		init = function()
-			vim.opt.signcolumn = "yes"
-		end,
-		config = function()
-			local lsp = require("lspconfig")
-			local lsp_defaults = lsp.util.default_config
-
-			lsp_defaults.capabilities =
-				vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-			vim.api.nvim_create_autocmd("LspAttach", {
-				desc = "LSP actions",
-				callback = function(event)
-					local opts = { buffer = event.buf }
-
-					vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-					vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-					vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-					vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-					vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-					vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-					vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-					vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-					vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-				end,
-			})
-
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"bashls",
-					"clangd",
-					"biome",
-					"ts_ls",
-					"jsonls",
-				},
-				handlers = {
-					function(server_name)
-						require("lspconfig")[server_name].setup({
-							capabilities = lsp_defaults.capabilities,
-						})
-					end,
-				},
-			})
-
-			lsp.lua_ls.setup({
-				on_init = function(client)
-					local path = client.workspace_folders[1].name
-					if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-						return
-					end
-
-					client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-						runtime = {
-							version = "LuaJIT",
-						},
-						workspace = {
-							checkThirdParty = false,
-							library = {
-								vim.env.VIMRUNTIME,
-							},
-						},
-					})
-				end,
-				settings = {
-					Lua = {},
-				},
-			})
-
-			require("lspconfig").jsonls.setup({
-				settings = {
-					json = {
-						schemas = {
-							{
-								fileMatch = { "package.json" },
-								url = "https://json.schemastore.org/package.json",
-							},
-						},
+		lsp.lua_ls.setup({
+			settings = {
+				Lua = {
+					runtime = {
+						version = "LuaJIT",
+						path = vim.split(package.path, ";"),
 					},
-				},
-			})
-		end,
-	},
-
-	-- Linter
-	{ "mfussenegger/nvim-lint", event = { "BufReadPre", "BufNewFile" } },
-
-	-- Formatter
-	{
-		"stevearc/conform.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		cmd = { "ConformInfo" },
-		keys = {
-			{
-				"<leader>f",
-				function()
-					require("conform").format({ async = true })
-				end,
-				mode = "",
-				desc = "Format buffer",
-			},
-		},
-		init = function()
-			vim.o.formatexpr = 'v:lua.require"conform".formatexpr()'
-		end,
-		config = function()
-			local configs = require("conform")
-
-			configs.setup({
-				formatters_by_ft = {
-					lua = { "stylua" },
-					python = { "isort" },
-					rust = { "rustfmt", lsp_format = "fallback" },
-					javascript = { "biome" },
-					typescript = { "biome" },
-					json = { "biome" },
-					html = { "prettierd" },
-					css = { "prettierd" },
-                    zsh = { "beautysh" }
-				},
-			})
-		end,
-	},
-
-	{
-		"folke/trouble.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
-		opts = {
-			modes = {
-				preview_float = {
-					mode = "diagnostics",
-					preview = {
-						type = "float",
-						relative = "editor",
-						border = "rounded",
-						title = "Preview",
-						title_pos = "center",
-						position = { 0, -2 },
-						size = { width = 0.3, height = 0.3 },
-						zindex = 200,
+					diagnostics = {
+						globals = { "vim" },
 					},
-				},
-				icons = {
-					indent = {
-						middle = " ",
-						last = " ",
-						top = " ",
-						ws = "│  ",
+					workspace = {
+						library = { vim.env.VIMRUNTIME },
+						checkThirdParty = false,
+					},
+					telemetry = {
+						enable = false,
 					},
 				},
 			},
-		},
-		cmd = "Trouble",
-		keys = {
-			{
-				"<leader>xx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "Diagnostics (Trouble)",
+		})
+
+		lsp.jsonls.setup({
+			settings = {
+				json = {
+					schemas = {
+						{
+							fileMatch = { "package.json" },
+							url = "https://json.schemastore.org/package.json",
+						},
+					},
+				},
 			},
-			{
-				"<leader>xX",
-				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-				desc = "Buffer Diagnostics (Trouble)",
-			},
-			{
-				"<leader>cs",
-				"<cmd>Trouble symbols toggle focus=false<cr>",
-				desc = "Symbols (Trouble)",
-			},
-			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				desc = "LSP Definitions / references / ... (Trouble)",
-			},
-			{
-				"<leader>xL",
-				"<cmd>Trouble loclist toggle<cr>",
-				desc = "Location List (Trouble)",
-			},
-			{
-				"<leader>xQ",
-				"<cmd>Trouble qflist toggle<cr>",
-				desc = "Quickfix List (Trouble)",
-			},
-		},
-	},
+		})
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			desc = "LSP actions",
+			callback = function(event)
+				local opts = { buffer = event.buf }
+
+				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+				vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
+				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+				vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+			end,
+		})
+	end,
 }
