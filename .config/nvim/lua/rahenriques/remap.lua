@@ -16,16 +16,21 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
+vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 
 -- Remove arrows
-vim.keymap.set('n','<Leader>y','"+y')
-vim.keymap.set('n','<Leader>yy','"+yy')
-vim.keymap.set('n','<Leader>Y','"+Y')
-vim.keymap.set('x','<Leader>y','"+y')
-vim.keymap.set('x','<Leader>Y','"+Y')
+vim.keymap.set('n', '<Leader>y', '"+y')
+vim.keymap.set('n', '<Leader>yy', '"+yy')
+vim.keymap.set('n', '<Leader>Y', '"+Y')
+vim.keymap.set('x', '<Leader>y', '"+y')
+vim.keymap.set('x', '<Leader>Y', '"+Y')
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
+
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<leader>x", ":.lua<CR>")
+vim.keymap.set("v", "<leader>x", ":lua<CR>")
+
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-auto-session<CR>")
 
 vim.keymap.set('i', '<Down>', '<NOP>')
