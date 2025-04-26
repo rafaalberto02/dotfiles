@@ -39,6 +39,8 @@
     direnv
     fd
     discord
+    libgdiplus
+    tree
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

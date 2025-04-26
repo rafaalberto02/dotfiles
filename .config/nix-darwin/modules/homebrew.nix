@@ -23,6 +23,7 @@
       "eloston-chromium"
       "devtunnel"
       "mono-mdk"
+      "anydesk"
     ];
     onActivation = {
       autoUpdate = true;
