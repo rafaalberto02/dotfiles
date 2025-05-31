@@ -24,6 +24,19 @@
       "devtunnel"
       "mono-mdk"
       "anydesk"
+      "nikitabobko/tap/aerospace"
+      "font-sketchybar-app-font"
+      "temurin@8"
+    ];
+    taps = [
+      "FelixKratz/formulae"
+      "nikitabobko/tap"
+    ];
+    brews = [
+      "openjdk@21"
+      "openjdk@11"
+      "borders"
+      "sketchybar"
     ];
     onActivation = {
       autoUpdate = true;

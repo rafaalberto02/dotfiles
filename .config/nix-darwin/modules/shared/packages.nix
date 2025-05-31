@@ -13,8 +13,6 @@
     alacritty
     ripgrep
     wget
-    skhd
-    yabai
     brave
     qbittorrent
     spotify
@@ -23,8 +21,6 @@
     monitorcontrol
     btop
     stow
-    ripgrep
-    kitty
     lua
     yq
     jq

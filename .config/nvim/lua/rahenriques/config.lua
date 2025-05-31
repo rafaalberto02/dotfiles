@@ -55,4 +55,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.opt.listchars = { space = "•", tab = "»» " }
-vim.opt.list = true
+vim.opt.list = false
