@@ -4,11 +4,11 @@ builtin:
     - vscode.css-language-features
     - vscode.debug-server-ready
     - vscode.debug-auto-launch
-    - vscode.emmet
     - vscode.extension-editing
-    - vscode.github
+    - vscode.emmet
     - vscode.git
     - vscode.git-base
+    - vscode.github
     - vscode.gulp
     - vscode.grunt
     - vscode.html-language-features
