@@ -1,23 +1,20 @@
 {
-  system.activationScripts.extraActivation.text = ''
-    softwareupdate --install-rosetta --agree-to-license
-    '';
-  system.activationScripts.postUserActivation.text = ''
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u;
+#  system.activationScripts.extraActivation.text = ''
+#    '';
+#  system.activationScripts.postUserActivation.text = ''
+#    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u;
+#
+#    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false            
+#    defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false    
+#    defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false       
+#    defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false 
+#    defaults write -g NSWindowShouldDragOnGesture -bool true
+#    defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+#    '';
 
-    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false            
-    defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false    
-    defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false       
-    defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false 
-    defaults write -g NSWindowShouldDragOnGesture -bool true
-    defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
-    '';
+  system.primaryUser = "rahenriques";
 
   system.defaults = {
-    alf = {
-      globalstate = 1;
-    };
-
     dock = {
       mru-spaces = false;
       enable-spring-load-actions-on-all-items = true;
@@ -87,5 +84,5 @@
 
   };
 
-  networking.wakeOnLan.enable = false;
+  # networking.wakeOnLan.enable = false;
 }

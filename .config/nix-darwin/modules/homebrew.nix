@@ -13,20 +13,17 @@
     casks = [
       "libreoffice"
       "tidal"
-      "whatsapp"
-      "microsoft-teams"
       "thunderbird"
       "bitwarden"
       "firefox"
+      "firefox@nightly"
       "windows-app"
-      "docker"
+      "docker-desktop"
       "eloston-chromium"
-      "devtunnel"
-      "mono-mdk"
-      "anydesk"
       "nikitabobko/tap/aerospace"
       "font-sketchybar-app-font"
       "temurin@8"
+      "remote-desktop-manager"
     ];
     taps = [
       "FelixKratz/formulae"

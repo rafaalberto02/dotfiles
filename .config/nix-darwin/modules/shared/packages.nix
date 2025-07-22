@@ -1,15 +1,14 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    neovim
-    tmux
-    git
-
     (pkgs.python3.withPackages (python-pkgs: [
       python-pkgs.pip
       python-pkgs.setuptools
     ]))
 
+    neovim
+    tmux
+    git
     alacritty
     ripgrep
     wget
@@ -37,6 +36,7 @@
     discord
     libgdiplus
     tree
+    whatsapp-for-mac
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

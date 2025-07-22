@@ -21,4 +21,4 @@ alias ln='ln -i'
 # SSH
 alias ssh='TERM=xterm-256color ssh'
 
-alias rebuild='darwin-rebuild switch --flake "$(readlink -f ~/.config/nix-darwin)"'
+alias rebuild='nix-channel --update darwin && sudo darwin-rebuild switch --flake "$(readlink -f ~/.config/nix-darwin)"'
