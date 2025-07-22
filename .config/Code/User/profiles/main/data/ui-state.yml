@@ -77,7 +77,7 @@ workbench.auxiliarybar.placeholderPanels: '[{"id":"workbench.panel.chat","themeI
   !chatSetupHidden"}]},{"id":"workbench.panel.chatEditing","name":"Copilot
   Edits","isBuiltin":false}]'
 workbench.auxiliaryBar.size: "300"
-workbench.editor.languageDetectionOpenedLanguages.global: '[["xml",true],["plaintext",true],["csharp",true],["yaml",true],["jsonc",true]]'
+workbench.editor.languageDetectionOpenedLanguages.global: '[["xml",true],["plaintext",true],["csharp",true],["jsonc",true],["yaml",true]]'
 workbench.explorer.views.state.hidden: '[{"id":"outline","isHidden":false},{"id":"timeline","isHidden":false},{"id":"workbench.explorer.openEditorsView","isHidden":true},{"id":"workbench.explorer.emptyView","isHidden":false},{"id":"workbench.explorer.fileView","isHidden":false},{"id":"npm","isHidden":true}]'
 workbench.panel.alignment: center
 workbench.panel.chat.hidden: '[{"id":"workbench.panel.chat.view.copilot","isHidden":false}]'
