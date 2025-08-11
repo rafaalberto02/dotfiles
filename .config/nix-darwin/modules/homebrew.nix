@@ -19,21 +19,23 @@
       "firefox@nightly"
       "windows-app"
       "docker-desktop"
-      "eloston-chromium"
       "nikitabobko/tap/aerospace"
-      "font-sketchybar-app-font"
       "temurin@8"
       "remote-desktop-manager"
     ];
     taps = [
-      "FelixKratz/formulae"
       "nikitabobko/tap"
     ];
     brews = [
       "openjdk@21"
       "openjdk@11"
-      "borders"
-      "sketchybar"
+      "gtk4"
+      "pkg-config"
+      "sshpass"
+      "ansible"
+      "nmap"
+      "ldns"
+      "knot"
     ];
     onActivation = {
       autoUpdate = true;

@@ -4,6 +4,7 @@
     (pkgs.python3.withPackages (python-pkgs: [
       python-pkgs.pip
       python-pkgs.setuptools
+      python-pkgs.isort
     ]))
 
     neovim
@@ -37,6 +38,7 @@
     libgdiplus
     tree
     whatsapp-for-mac
+    nodejs
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

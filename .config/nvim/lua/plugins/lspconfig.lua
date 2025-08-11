@@ -5,6 +5,7 @@ return {
         { "saghen/blink.cmp" },
         { "williamboman/mason-lspconfig.nvim" },
         { "stevearc/conform.nvim" },
+        { "mfussenegger/nvim-lint" },
         {
             "folke/lazydev.nvim",
             ft = "lua",
@@ -39,6 +40,7 @@ return {
                 function(server_name)
                     lsp[server_name].setup({ capabilities = capabilities })
                 end,
+
                 ["jsonls"] = function()
                     lsp.jsonls.setup({
                         capabilities = capabilities,
@@ -54,7 +56,38 @@ return {
                         },
                     })
                 end,
+
+                ["ansiblels"] = function()
+                    lsp.ansiblels.setup({
+                        capabilities = capabilities,
+                        cmd = { "ansible-language-server", "--stdio" },
+                        settings = {
+                            ansible = {
+                                python = { interpreterPath = "python" },
+                                ansible = { path = "ansible" },
+                                executionEnvironment = { enabled = false },
+                                validation = {
+                                    enabled = false,
+                                    lint = { enabled = true, path = "ansible-lint" },
+                                },
+                            },
+                        },
+                        filetypes = { "yaml", "yml", "ansible" },
+                        root_dir = lsp.util.root_pattern("roles", "playbooks"),
+                        single_file_support = false,
+                    })
+                end,
             },
+        })
+
+        require("lint").linters_by_ft = {
+            markdown = { "vale" },
+        }
+
+        vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+            callback = function()
+                require("lint").try_lint()
+            end,
         })
 
         vim.api.nvim_create_autocmd("LspAttach", {
