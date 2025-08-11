@@ -1,13 +1,14 @@
+ms-dotnettools.vscode-dotnet-runtime: '{"installed":[{"dotnetInstall":{"installId":"9.0.8~arm64~aspnetcore","version":"9.0.8","architecture":"arm64","isGlobal":false,"installMode":"aspnetcore"},"installingExtensions":["ms-dotnettools.csharp"]}]}'
 ms-vscode.remote-server: '{"remote-tunnels.folder-history":{},"tunnelClearSessionOnNextProvider":false}'
 vscode-icons-team.vscode-icons: '{"vsicons":{"version":"12.13.0","status":2,"welcomeShown":true}}'
 workbench.activity.pinnedViewlets2: '[{"id":"workbench.view.explorer","pinned":true,"visible":false,"order":0},{"id":"workbench.view.search","pinned":true,"visible":false,"order":1},{"id":"workbench.view.scm","pinned":true,"visible":false,"order":2},{"id":"workbench.view.debug","pinned":true,"visible":false,"order":3},{"id":"workbench.view.remote","pinned":true,"visible":false,"order":4},{"id":"workbench.view.extensions","pinned":true,"visible":false,"order":4},{"id":"workbench.view.extension.test","pinned":true,"visible":false,"order":6},{"id":"workbench.view.extension.references-view","pinned":true,"visible":false,"order":7},{"id":"workbench.view.sync","pinned":true,"visible":false},{"id":"workbench.view.editSessions","pinned":true,"visible":false}]'
 workbench.activity.placeholderViewlets: "[{\"id\":\"workbench.view.explorer\",\
   \"themeIcon\":{\"id\":\"explorer-view-icon\"},\"name\":\"Explorer\",\"isBuilt\
   in\":true,\"views\":[{},{},{},{\"when\":\"timelineHasProvider\"},{\"when\":\"\
-  npm:showScriptExplorer\"}]},{\"id\":\"workbench.view.search\",\"themeIcon\":{\
-  \"id\":\"search-view-icon\"},\"name\":\"Search\",\"isBuiltin\":true,\"views\"\
-  :[{}]},{\"id\":\"workbench.view.scm\",\"themeIcon\":{\"id\":\"source-control-\
-  view-icon\"},\"name\":\"Source
+  npm:showScriptExplorer\"},{\"when\":\"solutionExplorerVisible\"}]},{\"id\":\"\
+  workbench.view.search\",\"themeIcon\":{\"id\":\"search-view-icon\"},\"name\":\
+  \"Search\",\"isBuiltin\":true,\"views\":[{}]},{\"id\":\"workbench.view.scm\",\
+  \"themeIcon\":{\"id\":\"source-control-view-icon\"},\"name\":\"Source
   Control\",\"isBuiltin\":true,\"views\":[{\"when\":\"scm.providerCount &&
   scm.providerCount != '0'\"},{},{\"when\":\"scm.historyProviderCount &&
   scm.historyProviderCount !=
@@ -107,8 +108,8 @@ workbench.view.extension.test.state.hidden: '[{"id":"workbench.view.testing","is
 workbench.view.extensions.state.hidden: '[{"id":"workbench.views.extensions.installed","isHidden":false},{"id":"workbench.views.extensions.searchOutdated","isHidden":false},{"id":"workbench.views.extensions.workspaceRecommendations","isHidden":false},{"id":"workbench.views.extensions.popular","isHidden":false},{"id":"workbench.views.extensions.searchRecentlyUpdated","isHidden":false},{"id":"workbench.views.extensions.otherRecommendations","isHidden":false},{"id":"extensions.recommendedList","isHidden":false},{"id":"workbench.views.extensions.enabled","isHidden":true},{"id":"workbench.views.extensions.disabled","isHidden":true},{"id":"workbench.views.extensions.marketplace","isHidden":false},{"id":"workbench.views.extensions.searchInstalled","isHidden":false},{"id":"workbench.views.extensions.searchEnabled","isHidden":false},{"id":"workbench.views.extensions.searchDisabled","isHidden":false},{"id":"workbench.views.extensions.searchBuiltin","isHidden":false},{"id":"workbench.views.extensions.searchWorkspaceUnsupported","isHidden":false},{"id":"workbench.views.extensions.builtinFeatureExtensions","isHidden":false},{"id":"workbench.views.extensions.builtinThemeExtensions","isHidden":false},{"id":"workbench.views.extensions.builtinProgrammingLanguageExtensions","isHidden":false},{"id":"workbench.views.extensions.untrustedUnsupportedExtensions","isHidden":false},{"id":"workbench.views.extensions.untrustedPartiallySupportedExtensions","isHidden":false},{"id":"workbench.views.extensions.virtualUnsupportedExtensions","isHidden":false},{"id":"workbench.views.extensions.virtualPartiallySupportedExtensions","isHidden":false},{"id":"workbench.views.extensions.deprecatedExtensions","isHidden":false},{"id":"workbench.views.mcp.installed","isHidden":false},{"id":"workbench.views.mcp.marketplace","isHidden":false},{"id":"workbench.views.extensions.local.installed","isHidden":false},{"id":"workbench.views.extensions.remote.installed","isHidden":false},{"id":"workbench.views.mcp.default.marketplace","isHidden":false}]'
 workbench.view.remote.state.hidden: '[{"id":"remoteTargets","isHidden":false},{"id":"targetsWsl","isHidden":false},{"id":"~remote.helpPanel","isHidden":false}]'
 workbench.view.search.state.hidden: '[{"id":"workbench.view.search","isHidden":false}]'
-workbench.views.extensions.installed.size: "10"
+workbench.views.extensions.installed.size: "17"
 workbench.views.extensions.local.installed.size: "91"
 workbench.views.extensions.remote.installed.size: "4"
-workbench.welcomePage.walkthroughMetadata: '[["ms-vscode-remote.remote-wsl#wslWalkthrough",{"firstSeen":1753193362770,"stepIDs":["explore.commands","open.wslwindow","create.project","open.project","linux.environment","install.tools","run.debug","come.back"],"manaullyOpened":false}]]'
+workbench.welcomePage.walkthroughMetadata: '[["ms-vscode-remote.remote-wsl#wslWalkthrough",{"firstSeen":1753193362770,"stepIDs":["explore.commands","open.wslwindow","create.project","open.project","linux.environment","install.tools","run.debug","come.back"],"manaullyOpened":false}],["ms-dotnettools.csdevkit#csdevkit.gettingStarted",{"firstSeen":1754920246556,"stepIDs":["csdevkit.signInStep","csdevkit.setupEnvironmentStep","csdevkit.openWorkspaceStep","csdevkit.createNewProjectStep","csdevkit.launchDebugAndTestStep","csdevkit.learnMoreStep"],"manaullyOpened":false}]]'
 zokugun.cron-tasks: '{"version":"0.2.1"}'

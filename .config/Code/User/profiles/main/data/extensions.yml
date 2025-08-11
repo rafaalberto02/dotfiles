@@ -17,20 +17,20 @@ builtin:
     - vscode.jake
     - vscode.java
     - vscode.julia
-    - vscode.less
     - vscode.latex
+    - vscode.less
     - ms-vscode.vscode-js-profile-table
     - vscode.builtin-notebook-renderers
     - vscode.objective-c
+    - vscode.perl
     - vscode.php
     - vscode.php-language-features
-    - vscode.perl
     - vscode.pug
     - vscode.r
     - vscode.razor
-    - vscode.rust
     - vscode.restructuredtext
     - vscode.ruby
+    - vscode.rust
     - vscode.shaderlab
     - vscode.swift
     - vscode.terminal-suggest
@@ -38,21 +38,35 @@ builtin:
     - vscode.theme-kimbie-dark
     - vscode.theme-monokai
     - vscode.theme-monokai-dimmed
-    - vscode.theme-red
     - vscode.theme-quietlight
+    - vscode.theme-red
     - vscode.vscode-theme-seti
-    - vscode.theme-solarized-light
-    - vscode.tunnel-forwarding
     - vscode.theme-solarized-dark
+    - vscode.theme-solarized-light
     - vscode.theme-tomorrow-night-blue
+    - vscode.tunnel-forwarding
 disabled:
   - id: asvetliakov.vscode-neovim
     uuid: caf8995c-5426-4bf7-9d01-f7968ebd49bb
 enabled:
+  - id: Angular.ng-template
+    uuid: a92d457e-6f3f-4167-8087-1a54e1b6e00e
   - id: Catppuccin.catppuccin-vsc
     uuid: 69264e4d-cd3b-468a-8f2b-e69673c7d864
+  - id: dbaeumer.vscode-eslint
+    uuid: 583b2b34-2c1e-4634-8c0b-0b82e283ea3a
   - id: enkia.tokyo-night
     uuid: 1cac7443-911e-48b9-8341-49f3880c288a
+  - id: esbenp.prettier-vscode
+    uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
+  - id: kreativ-software.csharpextensions
+    uuid: 80c8f9ff-3535-4b4a-b3db-e88f5752bb18
+  - id: ms-dotnettools.csdevkit
+    uuid: 7ad42776-8f7e-4214-bf67-4f0b518ef629
+  - id: ms-dotnettools.csharp
+    uuid: d0bfc4ab-1d3a-4487-8782-7cf6027b4fff
+  - id: ms-dotnettools.vscode-dotnet-runtime
+    uuid: 1aab81a1-b3d9-4aef-976b-577d5d90fe3f
   - id: ms-vscode-remote.remote-ssh
     uuid: 607fd052-be03-4363-b657-2bd62b83d28a
   - id: ms-vscode-remote.remote-ssh-edit
