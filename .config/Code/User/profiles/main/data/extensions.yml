@@ -1,24 +1,50 @@
 builtin:
   disabled:
-    - vscode.css-language-features
+    - vscode.clojure
+    - vscode.coffeescript
+    - vscode.dart
     - vscode.debug-server-ready
     - vscode.extension-editing
+    - vscode.fsharp
     - vscode.github
     - vscode.github-authentication
+    - vscode.groovy
     - vscode.grunt
     - vscode.gulp
-    - vscode.html-language-features
+    - vscode.handlebars
+    - vscode.hlsl
     - vscode.ipynb
     - vscode.jake
-    - vscode.json-language-features
-    - vscode.markdown-language-features
-    - vscode.markdown-math
+    - vscode.java
+    - vscode.julia
+    - vscode.less
+    - vscode.latex
     - ms-vscode.vscode-js-profile-table
     - vscode.builtin-notebook-renderers
+    - vscode.objective-c
+    - vscode.php
     - vscode.php-language-features
+    - vscode.perl
+    - vscode.pug
+    - vscode.r
+    - vscode.razor
+    - vscode.rust
+    - vscode.restructuredtext
+    - vscode.ruby
+    - vscode.shaderlab
+    - vscode.swift
     - vscode.terminal-suggest
+    - vscode.theme-abyss
+    - vscode.theme-kimbie-dark
+    - vscode.theme-monokai
+    - vscode.theme-monokai-dimmed
+    - vscode.theme-red
+    - vscode.theme-quietlight
+    - vscode.vscode-theme-seti
+    - vscode.theme-solarized-light
     - vscode.tunnel-forwarding
-    - vscode.typescript-language-features
+    - vscode.theme-solarized-dark
+    - vscode.theme-tomorrow-night-blue
 disabled:
   - id: asvetliakov.vscode-neovim
     uuid: caf8995c-5426-4bf7-9d01-f7968ebd49bb
