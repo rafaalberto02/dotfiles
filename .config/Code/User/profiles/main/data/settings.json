@@ -30,7 +30,7 @@
     "editor.cursorStyle": "block",
     "editor.folding": true,
     "editor.foldingHighlight": true,
-    "editor.fontSize": 18,
+    "editor.fontSize": 16,
     "editor.lineHeight": 1.5,
     "editor.fontVariations": true,
     "editor.glyphMargin": true,
@@ -47,7 +47,6 @@
     "workbench.layoutControl.enabled": false,
     "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.showTabs": "multiple",
-    "workbench.editor.tabSizing": "fixed",
     "workbench.editor.alwaysShowEditorActions": false,
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.editor.showIcons": false,
@@ -62,13 +61,14 @@
     "workbench.quickOpen.closeOnFocusLost": false,
     "workbench.quickOpen.preserveInput": true,
     "workbench.remoteIndicator.showExtensionRecommendations": false,
-    "workbench.sideBar.location": "left",
+    "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tips.enabled": false,
     "workbench.tree.enableStickyScroll": true,
     "workbench.tree.indent": 8,
     "workbench.tree.renderIndentGuides": "always",
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Catppuccin Mocha",
     //
     "git.autofetch": false,
     "git.blame.statusBarItem.enabled": false,
@@ -105,4 +105,9 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
+    "update.showReleaseNotes": false,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "update.mode": "none",
+    "vsicons.dontShowNewVersionMessage": true,
+    "git.blame.editorDecoration.enabled": false,
 }
