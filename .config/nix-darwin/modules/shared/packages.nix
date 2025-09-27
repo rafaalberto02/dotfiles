@@ -39,6 +39,7 @@
     tree
     whatsapp-for-mac
     nodejs
+    freerdp
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

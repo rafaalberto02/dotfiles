@@ -80,6 +80,13 @@ return {
             },
         })
 
+        require("lspconfig").vala_ls.setup({
+            cmd = { "vala-language-server" },
+            filetypes = { "vala", "genie" },
+            root_dir = lsp.util.root_pattern("meson.build", ".git"),
+            single_file_support = true,
+        })
+
         require("lint").linters_by_ft = {
             markdown = { "vale" },
         }

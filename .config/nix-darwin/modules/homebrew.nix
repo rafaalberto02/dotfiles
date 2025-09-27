@@ -22,6 +22,8 @@
       "nikitabobko/tap/aerospace"
       "temurin@8"
       "remote-desktop-manager"
+      "vlc"
+      "obsidian"
     ];
     taps = [
       "nikitabobko/tap"
@@ -36,6 +38,10 @@
       "nmap"
       "ldns"
       "knot"
+      "vala"
+      "meson"
+      "gnome-builder"
+      "vala-language-server"
     ];
     onActivation = {
       autoUpdate = true;
