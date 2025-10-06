@@ -1,25 +1,27 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    (pkgs.python3.withPackages (python-pkgs: [
-      python-pkgs.pip
-      python-pkgs.setuptools
-      python-pkgs.isort
+    (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
+      pip
+      setuptools
+      isort
+      pynvim
     ]))
 
+    (pkgs.lua5_1.withPackages (lua-pkgs: with lua-pkgs; [
+      luarocks
+    ]))
+    
+    fzf
     neovim
     tmux
     git
     alacritty
     ripgrep
     wget
-    brave
     qbittorrent
-    spotify
     vscode
-    vscodium
     monitorcontrol
-    btop
     stow
     lua
     yq
@@ -31,15 +33,13 @@
     cmake
     ninja
     mono
-    omnisharp-roslyn
     direnv
     fd
     discord
     libgdiplus
     tree
-    whatsapp-for-mac
     nodejs
-    freerdp
+    thunderbird
   ];
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];

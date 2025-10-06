@@ -2,8 +2,8 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         { "nvim-telescope/telescope.nvim" },
-        { "saghen/blink.cmp" },
         { "williamboman/mason-lspconfig.nvim" },
+        { "saghen/blink.cmp" },
         { "stevearc/conform.nvim" },
         { "mfussenegger/nvim-lint" },
         {
@@ -23,26 +23,24 @@ return {
         vim.opt.signcolumn = "yes"
     end,
     config = function()
-        local lsp = require("lspconfig")
         local blink = require("blink.cmp")
 
-        local lsp_defaults = lsp.util.default_config
-        local vim_capabilities = vim.lsp.protocol.make_client_capabilities()
-
-        local capabilities = vim.tbl_deep_extend("force", lsp_defaults.capabilities, vim_capabilities)
-
-        capabilities = vim.tbl_deep_extend("force", capabilities, blink.get_lsp_capabilities({}, false))
+        local capabilities = blink.get_lsp_capabilities({}, false)
 
         require("mason-lspconfig").setup({
             automatic_installation = true,
             ensure_installed = {},
             handlers = {
                 function(server_name)
-                    lsp[server_name].setup({ capabilities = capabilities })
+                    vim.lsp.config(server_name, {
+                        capabilities = capabilities
+                    })
+
+                    vim.lsp.enable(server_name)
                 end,
 
                 ["jsonls"] = function()
-                    lsp.jsonls.setup({
+                    vim.lsp.config("jsonls", {
                         capabilities = capabilities,
                         settings = {
                             json = {
@@ -58,7 +56,7 @@ return {
                 end,
 
                 ["ansiblels"] = function()
-                    lsp.ansiblels.setup({
+                    vim.lsp.config("ansiblels", {
                         capabilities = capabilities,
                         cmd = { "ansible-language-server", "--stdio" },
                         settings = {
@@ -73,17 +71,16 @@ return {
                             },
                         },
                         filetypes = { "yaml", "yml", "ansible" },
-                        root_dir = lsp.util.root_pattern("roles", "playbooks"),
                         single_file_support = false,
                     })
                 end,
             },
         })
 
-        require("lspconfig").vala_ls.setup({
+        vim.lsp.config("vala_ls", {
+            capabilities = capabilities,
             cmd = { "vala-language-server" },
             filetypes = { "vala", "genie" },
-            root_dir = lsp.util.root_pattern("meson.build", ".git"),
             single_file_support = true,
         })
 
@@ -127,7 +124,7 @@ return {
                             if did_edit == false then
                                 local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-                                if client and client.supports_method("textDocument/formatting") then
+                                if client then
                                     vim.lsp.buf.format({ bufnr = event.buf, id = client.id })
                                 end
                             end

@@ -8,25 +8,17 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     mac-app-util.url = "github:hraban/mac-app-util";
+    mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, mac-app-util, nix-homebrew }:
-
-    let
-    configuration = { ... }: {
-      environment.etc.nix-darwin.source = "/Users/rahenriques/.config/nix-darwin/";
-
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-      system.stateVersion = 6;
-    };
-  in
   {
-    darwinConfigurations."Rafaels-Mac-mini" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
       modules = [ 
         ./modules
-        configuration 
         mac-app-util.darwinModules.default
         nix-homebrew.darwinModules.nix-homebrew
         {
@@ -34,11 +26,10 @@
             enable = true;
             enableRosetta = true;
             user = "rahenriques";
+            autoMigrate = true;
           };
         }];
     };
-
-    darwinPackages = self.darwinConfigurations."Rafaels-Mac-mini".pkgs;
   };
 }
 
