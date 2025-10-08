@@ -8,8 +8,6 @@ return {
     opts = {
         formatters_by_ft = {
             lua = { "stylua" },
-            python = { "isort" },
-            rust = { "rustfmt" },
             javascript = { "biome" },
             typescript = { "biome" },
             json = { "biome" },
@@ -18,7 +16,6 @@ return {
             zsh = { "beautysh" },
             cs = { "csharpier" },
             c = { "clang-format" },
-            vala = { "uncrustify" },
         },
     },
     keys = {
@@ -27,9 +24,7 @@ return {
             function()
                 require("conform").format({
                     async = true,
-                    callback = function()
-                        vim.lsp.buf.format({ async = true })
-                    end,
+                    lsp_format = "fallback"
                 })
             end,
         },

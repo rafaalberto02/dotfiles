@@ -15,8 +15,6 @@ return {
         local capabilities = blink.get_lsp_capabilities()
 
         local on_attach = function(client, bufnr)
-            vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
             local opts = { noremap = true, silent = true, buffer = bufnr }
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
