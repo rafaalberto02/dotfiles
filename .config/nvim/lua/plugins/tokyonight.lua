@@ -1,17 +1,15 @@
 return {
-	"folke/tokyonight.nvim",
-	lazy = false,
-	priority = 1000,
-	opts = {},
-	config = function()
-		require("tokyonight").setup({
-			style = "night",
-			transparent = true,
-			plugins = {
-				auto = true,
-			},
-		})
-
-		vim.cmd([[colorscheme tokyonight-night]])
-	end,
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+        style = "night",
+        transparent = true,
+        plugins = {
+            auto = true,
+        },
+    },
+    init = function()
+        vim.cmd([[colorscheme tokyonight-night]])
+    end,
 }
