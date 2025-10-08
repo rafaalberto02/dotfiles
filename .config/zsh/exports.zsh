@@ -8,6 +8,7 @@ export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export UNCRUSTIFY_CONFIG=$HOME/.config/.uncrustify.cfg
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then 
     source $HOME/.nix-profile/etc/profile.d/nix.sh; 

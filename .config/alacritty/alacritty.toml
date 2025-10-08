@@ -9,7 +9,7 @@ option_as_alt = "Both"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-size = 18
+size = 20
 
 [keyboard]
 bindings = [

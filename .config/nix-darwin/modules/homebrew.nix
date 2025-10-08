@@ -19,7 +19,8 @@
     taps = [
       "nikitabobko/tap"
     ];
-    brews = [ ];
+    brews = [
+   ];
     onActivation = {
       autoUpdate = true;
       upgrade = true;

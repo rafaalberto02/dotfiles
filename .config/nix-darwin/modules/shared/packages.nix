@@ -8,37 +8,38 @@
       pynvim
     ]))
 
+    lua
     (pkgs.lua5_1.withPackages (lua-pkgs: with lua-pkgs; [
       luarocks
     ]))
-    
-    fzf
-    neovim
+
+    nodejs
+    go
+    mono
+    cargo
+
     tmux
     git
-    alacritty
-    ripgrep
     wget
-    qbittorrent
-    vscode
-    monitorcontrol
-    stow
-    lua
+
+    fzf
     yq
     jq
-    go
     bat
+    fd
+    tree
     delta
     chafa
-    cmake
-    ninja
-    mono
+    stow
     direnv
-    fd
+    ripgrep
+    uncrustify
+
+    alacritty
+    neovim
+    qbittorrent
     discord
-    libgdiplus
-    tree
-    nodejs
+    monitorcontrol
     thunderbird
   ];
 
