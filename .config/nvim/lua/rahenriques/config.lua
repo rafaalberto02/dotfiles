@@ -33,10 +33,6 @@ vim.o.showmode = false
 
 vim.cmd("colorscheme habamax")
 
--- transparent background
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
 vim.g.editorconfig = true
 
 -- Set Netrw options
@@ -44,15 +40,22 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 1
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("HighlightYank", {}),
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = "IncSearch",
-			timeout = 40,
-		})
-	end,
+    group = vim.api.nvim_create_augroup("HighlightYank", {}),
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "IncSearch",
+            timeout = 40,
+        })
+    end,
 })
+
+vim.keymap.set("n", "<space>st", function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 15)
+end)
 
 vim.opt.listchars = { space = "•", tab = "»» " }
 vim.opt.list = false

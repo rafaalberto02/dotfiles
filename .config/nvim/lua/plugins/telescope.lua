@@ -35,6 +35,12 @@ return {
                         ["<esc>"] = actions.close,
                     },
                 },
+                file_ignore_patterns = {
+                    "node_modules/",
+                    "build/",
+                    "obj/",
+                    "bin/",
+                },
             },
             pickers = {
                 find_files = {
