@@ -54,13 +54,14 @@
           direnv
           ripgrep
           uncrustify
+          cmake
+          pkg-config
 
           alacritty
           neovim
           qbittorrent
           discord
           monitorcontrol
-          thunderbird
           obsidian
         ];
 
@@ -83,7 +84,9 @@
             "ungoogled-chromium"
           ];
           taps = [ ];
-          brews = [ ];
+          brews = [
+            "ccls"
+          ];
           onActivation = {
             autoUpdate = true;
             upgrade = true;

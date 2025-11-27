@@ -40,6 +40,7 @@ return {
                     "build/",
                     "obj/",
                     "bin/",
+                    ".ccls-cache/",
                 },
             },
             pickers = {

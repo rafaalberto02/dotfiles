@@ -16,6 +16,7 @@ return {
             zsh = { "beautysh" },
             cs = { "csharpier" },
             c = { "clang-format" },
+            cmake = { "cmake" },
         },
     },
     keys = {
@@ -24,7 +25,7 @@ return {
             function()
                 require("conform").format({
                     async = true,
-                    lsp_format = "fallback"
+                    lsp_format = "fallback",
                 })
             end,
         },

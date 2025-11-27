@@ -11,9 +11,7 @@ function zcompile-many() {
 autoload -Uz compinit && compinit
 [[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || zcompile-many ~/.zcompdump
 
-
 source "$ZSH_CONFIG/plugins/plugins.zsh"
-source "$ZSH_CONFIG/functions/functions.zsh"
 
 # Keybindings
 bindkey '^p' history-search-backward
