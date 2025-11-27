@@ -3,53 +3,48 @@ local builtin = require("telescope.builtin")
 return {
     "nvim-telescope/telescope.nvim",
     lazy = true,
-    cmd = "Telescope",
     dependencies = {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
         },
-        { "nvim-lua/plenary.nvim" },
-        { "nvim-treesitter/nvim-treesitter" },
-        { "nvim-tree/nvim-web-devicons" },
+        "nvim-tree/nvim-web-devicons",
+        "nvim-lua/plenary.nvim"
     },
     keys = {
         { "<leader>ff", builtin.find_files },
         { "<leader>fg", builtin.live_grep },
         { "<leader>fb", builtin.buffers },
         { "<leader>fh", builtin.help_tags },
-        { "<leader>fr", builtin.lsp_references },
-        { "<leader>fs", builtin.lsp_document_symbols },
         { "<leader>fts", builtin.treesitter },
-        { "<leader>fi", builtin.lsp_implementations },
         { "<leader>fmp", builtin.man_pages },
+        { "gd", builtin.lsp_definitions },
+        { "gr", builtin.lsp_references },
+        { "gi", builtin.lsp_implementations },
+        { "go", builtin.lsp_type_definitions },
+        { "<leader>sy", builtin.lsp_document_symbols },
+    },
+    opts = {
+        defaults = {
+            file_ignore_patterns = {
+                "node_modules/",
+                "build/",
+                "obj/",
+                "bin/",
+                ".git/",
+            },
+        },
+        extensions = {
+            fzf = {
+                fuzzy = true,
+                override_generic_sorter = true,
+                override_file_sorter = true,
+                case_mode = "ignore_case",
+            },
+        },
     },
     config = function()
         local telescope = require("telescope")
-        local actions = require("telescope.actions")
-
-        telescope.setup({
-            defaults = {
-                mappings = {
-                    i = {
-                        ["<esc>"] = actions.close,
-                    },
-                },
-                file_ignore_patterns = {
-                    "node_modules/",
-                    "build/",
-                    "obj/",
-                    "bin/",
-                    ".ccls-cache/",
-                },
-            },
-            pickers = {
-                find_files = {
-                    find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
-                },
-            },
-            extensions = { fzf = {} },
-        })
 
         telescope.load_extension("fzf")
     end,

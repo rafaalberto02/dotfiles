@@ -29,6 +29,7 @@ set encoding=utf-8
 
 colorscheme retrobox
 set background=dark
+hi Normal guibg=NONE ctermbg=NONE
 
 filetype on
 filetype indent on

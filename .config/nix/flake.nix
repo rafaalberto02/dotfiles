@@ -29,6 +29,12 @@
             luarocks
           ]))
 
+          msbuild
+          (with dotnetCorePackages; combinePackages [
+            sdk_9_0
+            sdk_10_0
+          ])
+
           glfw
           sdl3
           jdk25
@@ -56,6 +62,7 @@
           uncrustify
           cmake
           pkg-config
+          gdb
 
           alacritty
           neovim
@@ -67,41 +74,33 @@
 
         fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
-        environment = {
-          variables = {
-            HOMEBREW_NO_ANALYTICS = "1";
-            HOMEBREW_NO_INSECURE_REDIRECT = "1";
-            HOMEBREW_NO_EMOJI = "1";
-            HOMEBREW_NO_ENV_HINTS = "1";
-          };
-        };
-
         homebrew = {
           enable = true;
           casks = [
             "windows-app"
             "microsoft-teams"
             "ungoogled-chromium"
+            "obs"
+            "spotify"
           ];
           taps = [ ];
           brews = [
-            "ccls"
           ];
           onActivation = {
             autoUpdate = true;
             upgrade = true;
             cleanup = "zap";
           };
-          caskArgs.require_sha = true;
         };
+
+        programs.zsh.enable = true;
 
         environment.variables = {
           LUA_DIR = "${pkgs.lua}";
+          DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet/";
         };
 
         nix.settings.experimental-features = "nix-command flakes";
-
-        programs.zsh.enable = true;
 
         system.configurationRevision = self.rev or self.dirtyRev or null;
 

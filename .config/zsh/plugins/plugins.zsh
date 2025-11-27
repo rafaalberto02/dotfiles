@@ -9,12 +9,6 @@ local PLUGINS_CONFIGS="$CURRENT_PLUGINS/configs"
 
 [ ! -d $PLUGINS_REPOS ] && mkdir -p $PLUGINS_REPOS
 
-if [[ ! -e $PLUGINS_REPOS/zsh-defer ]]; then
-  git clone --depth=1 https://github.com/romkatv/zsh-defer.git $PLUGINS_REPOS/zsh-defer
-  
-  zcompile-many $PLUGINS_REPOS/zsh-defer/zsh-defer.plugin.zsh
-fi
-
 if [[ ! -e $PLUGINS_REPOS/gitstatus ]]; then
   git clone --depth=1 https://github.com/romkatv/gitstatus.git $PLUGINS_REPOS/gitstatus
   
@@ -33,21 +27,12 @@ if [[ ! -e $PLUGINS_REPOS/zsh-autosuggestions ]]; then
   zcompile-many $PLUGINS_REPOS/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
 fi
 
-if [[ ! -e $PLUGINS_REPOS/catppuccin ]]; then
-  git clone --depth=1 https://github.com/catppuccin/zsh-syntax-highlighting.git $PLUGINS_REPOS/catppuccin
-
-  zcompile-many $PLUGINS_REPOS/catppuccin/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
-fi
-
-source $PLUGINS_REPOS/zsh-defer/zsh-defer.plugin.zsh
-
-zsh-defer source $PLUGINS_REPOS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-zsh-defer source $PLUGINS_REPOS/zsh-autosuggestions/zsh-autosuggestions.zsh
-zsh-defer source $PLUGINS_REPOS/catppuccin/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source $PLUGINS_REPOS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $PLUGINS_REPOS/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $PLUGINS_REPOS/gitstatus/gitstatus.prompt.zsh
 
 source $PLUGINS_CONFIGS/gitstatus-prompt.config.zsh
-zsh-defer source $PLUGINS_CONFIGS/zsh-autosuggestions.config.zsh
+source $PLUGINS_CONFIGS/zsh-autosuggestions.config.zsh
 
 unset CURRENT_PLUGINS
 unset PLUGINS_REPOS

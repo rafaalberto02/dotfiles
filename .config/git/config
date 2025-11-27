@@ -9,7 +9,7 @@
     autoSetupRemote = true
 
 [core]
-    editor = nvim
+    editor = vim
 
 [color]
     ui = auto

@@ -21,17 +21,14 @@ vim.o.undofile = true
 
 vim.o.termguicolors = true
 
-vim.o.scrolloff = 10
-vim.o.signcolumn = "yes"
-
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 50
 
-vim.o.colorcolumn = "80"
-
-vim.o.showmode = false
-
-vim.cmd("colorscheme habamax")
+vim.cmd("colorscheme retrobox")
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
+vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")
+vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
 vim.g.editorconfig = true
 
