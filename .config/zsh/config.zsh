@@ -36,7 +36,7 @@ function zcompile-many() {
 
 autoload -Uz compinit
 compinit
-# [[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || zcompile-many ~/.zcompdump
+[[ ~/.zcompdump.zwc -nt ~/.zcompdump ]] || zcompile-many ~/.zcompdump
 
 source "$ZSH_CONFIG/plugins/plugins.zsh"
 
