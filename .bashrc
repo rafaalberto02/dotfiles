@@ -21,4 +21,4 @@ shopt -s autocd
 
 source ~/.config/bash/scripts/ansi_colors.bash
 
-PROMPT_COMMAND='PS1_CMD1=$(~/.config/bash/scripts/PS1_git_branch.bash)'; PS1='\[\e[92;1m\]\w\[\e[0m\] ${PS1_CMD1}\n\$ '
+PROMPT_COMMAND='PS1_CMD1=$(~/.config/bash/scripts/PS1_git_branch.bash)'; PS1='\n\[\e[92;1m\]\w\[\e[0m\] ${PS1_CMD1}\n\$ '
