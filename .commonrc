@@ -1,0 +1,4 @@
+source ~/.config/commonrc/scripts/ansi_colors.bash
+
+source ~/.config/commonrc/alias.bash
+source ~/.config/commonrc/exports.bash

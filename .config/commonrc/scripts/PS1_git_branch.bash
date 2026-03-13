@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ~/.config/bash/scripts/ansi_colors.bash
+source ~/.config/commonrc/scripts/ansi_colors.bash
 
 if [ ! -d .git ] && ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     exit 0

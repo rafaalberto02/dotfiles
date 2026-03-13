@@ -1,6 +1,0 @@
-PROMPT=$'\n'
-PROMPT+='%F{111}%~%f'
-PROMPT+=$'\n'
-PROMPT+='%(?.%F{150}  %f.%F{204}  %f)'
-
-RPROMPT='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT}'
