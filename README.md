@@ -1,5 +1,15 @@
 # Rafa DotFiles
 
+## Apply Configuration
+
 ```
-stow -R . --target=$HOME
+stow -R . -t ~
 ```
+
+## Better MacOS font
+
+```
+defaults -currentHost write -g AppleFontSmoothing -int 3
+```
+
+
