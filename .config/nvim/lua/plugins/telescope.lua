@@ -1,5 +1,3 @@
-local builtin = require("telescope.builtin")
-
 return {
     "nvim-telescope/telescope.nvim",
     lazy = true,
@@ -12,17 +10,17 @@ return {
         "nvim-lua/plenary.nvim"
     },
     keys = {
-        { "<leader>ff", builtin.find_files },
-        { "<leader>fg", builtin.live_grep },
-        { "<leader>fb", builtin.buffers },
-        { "<leader>fh", builtin.help_tags },
-        { "<leader>fts", builtin.treesitter },
-        { "<leader>fmp", builtin.man_pages },
-        { "gd", builtin.lsp_definitions },
-        { "gr", builtin.lsp_references },
-        { "gi", builtin.lsp_implementations },
-        { "go", builtin.lsp_type_definitions },
-        { "<leader>sy", builtin.lsp_document_symbols },
+        { "<leader>ff", function() require("telescope.builtin").find_files() end },
+        { "<leader>fg", function() require("telescope.builtin").live_grep() end },
+        { "<leader>fb", function() require("telescope.builtin").buffers() end },
+        { "<leader>fh", function() require("telescope.builtin").help_tags() end },
+        { "<leader>fts", function() require("telescope.builtin").treesitter() end },
+        { "<leader>fmp", function() require("telescope.builtin").man_pages() end },
+        { "gd", function() require("telescope.builtin").lsp_definitions() end },
+        { "gr", function() require("telescope.builtin").lsp_references() end },
+        { "gi", function() require("telescope.builtin").lsp_implementations() end },
+        { "go", function() require("telescope.builtin").lsp_type_definitions() end },
+        { "<leader>sy", function() require("telescope.builtin").lsp_document_symbols() end },
     },
     opts = {
         defaults = {

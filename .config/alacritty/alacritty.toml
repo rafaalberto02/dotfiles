@@ -3,13 +3,13 @@ dimensions = { columns = 0, lines = 0 }
 padding = { x = 0, y = 0 }
 dynamic_padding = true
 decorations = "buttonless"
-opacity = 0.6
+opacity = 1
 blur = true
 option_as_alt = "Both"
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-size = 20
+normal = { family = "Iosevka Nerd Font" }
+size = 14
 
 [keyboard]
 bindings = [
