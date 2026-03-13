@@ -1,0 +1,18 @@
+set editing-mode vi
+set show-all-if-ambiguous on
+set show-mode-in-prompt on
+
+set vi-ins-mode-string "󰏫 "
+set vi-cmd-mode-string "󰏮 "
+
+set colored-stats On
+set visible-stats On
+set mark-symlinked-directories On
+set colored-completion-prefix On
+set menu-complete-display-prefix On
+
+set echo-control-characters off
+
+set enable-bracketed-paste on
+
+
