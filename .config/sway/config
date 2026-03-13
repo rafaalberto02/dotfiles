@@ -124,8 +124,8 @@ output DP-1 resolution 2560x1440@165hz
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    # bindsym $mod+s layout stacking
+    # bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
@@ -197,22 +197,31 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-default_border pixel 0
-
 bar {
     id 1
     position bottom
-    font IosevkaNerdFont Normal 10
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background #323232
+        statusline #e0def4
+        background #1f1d2e
+        focused_workspace #26233a #26233a #e0def4
     }
 }
+
+# Start flavours
+# Base16 Rose Pine
+# Author: Emilia Dunfelt
+
+# Colors                brd     bg      txt     ind     chbrd
+client.focused          #c4a7e7 #1f1d2e #e0def4 #f6c177 #c4a7e7
+client.focused_inactive #191724 #191724 #908caa #26233a #191724
+client.unfocused        #1f1d2e #191724 #908caa #f6c177 #191724
+client.urgent           #eb6f92 #191724 #908caa #f6c177 #eb6f92
+# End flavours           
 
 include /etc/sway/config.d/*
 include ./definitions.d/*

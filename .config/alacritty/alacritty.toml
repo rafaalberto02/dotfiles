@@ -1,3 +1,11 @@
+[general]
+
+[colors.primary]
+foreground = "#e0def4"
+background = "#191724"
+dim_foreground = "#908caa"
+bright_foreground = "#e0def4"
+
 [window]
 dimensions = { columns = 0, lines = 0 }
 padding = { x = 0, y = 0 }
@@ -8,13 +16,13 @@ blur = true
 option_as_alt = "Both"
 
 [font]
-normal = { family = "Iosevka Nerd Font" }
+normal = { family = "monospace" }
 size = 14
 
 [keyboard]
 bindings = [
-    { key = "Right", mods = "Alt", chars = "\u001BF" },
-    { key = "Left",  mods = "Alt", chars = "\u001BB" },
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left", mods = "Alt", chars = "\u001BB" },
 ]
 
 [env]

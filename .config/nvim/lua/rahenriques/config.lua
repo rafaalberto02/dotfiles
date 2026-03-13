@@ -25,10 +25,10 @@ vim.o.encoding = "utf-8"
 vim.o.updatetime = 50
 
 vim.cmd("colorscheme retrobox")
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
-vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")
-vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")
+-- vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
 vim.g.editorconfig = true
 
@@ -47,12 +47,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-vim.keymap.set("n", "<space>st", function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd("J")
-    vim.api.nvim_win_set_height(0, 15)
-end)
+vim.opt.listchars = {
+    tab = '→ ',
+    trail = '·',
+    extends = '>',
+    precedes = '<',
+    nbsp = '␣',
+    space = '␣'
+}
 
-vim.opt.listchars = { space = "•", tab = "»» " }
 vim.opt.list = false

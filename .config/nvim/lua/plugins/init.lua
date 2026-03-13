@@ -1,0 +1,5 @@
+require('plugins.fzf-lua')
+require('plugins.lspconfig')
+require('plugins.tree-sitter')
+require('plugins.oil')
+require('plugins.themes')
