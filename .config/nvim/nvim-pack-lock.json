@@ -1,5 +1,17 @@
 {
   "plugins": {
+    "conform.nvim": {
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "dressing.nvim": {
+      "rev": "2d7c2db2507fa3c4956142ee607431ddb2828639",
+      "src": "https://github.com/stevearc/dressing.nvim"
+    },
+    "flutter-tools.nvim": {
+      "rev": "677cc07c16e8b89999108d2ebeefcfc5f539b73c",
+      "src": "https://github.com/nvim-flutter/flutter-tools.nvim"
+    },
     "fzf-lua": {
       "rev": "30ba09afbc0eac5fc5ec8823418d1e45d0712b9f",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -7,6 +19,10 @@
     "lazydev.nvim": {
       "rev": "5231c62aa83c2f8dc8e7ba957aa77098cda1257d",
       "src": "https://github.com/folke/lazydev.nvim"
+    },
+    "markview.nvim": {
+      "rev": "288db27ed4bf799cafe2d9d607fa967050bd359a",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "a676ab7282da8d651e175118bcf54483ca11e46d",
@@ -25,12 +41,17 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "493890b87a81dfe6a7e577dbc364ae33fa482da9",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
     },
     "nvim-treesitter-context": {
       "rev": "529ee357b8c03d76ff71233afed68fd0f5fe10b1",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
+    },
+    "nvim-treesitter-refactor": {
+      "rev": "9cc0d22becf72e18808208cd0ce85032a2b19c6f",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
     },
     "nvim-treesitter-textobjects": {
       "rev": "4e91b5d0394329a229725b021a8ea217099826ef",
@@ -43,6 +64,18 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "0fd43fb4b1f073931c4b481f5f3b7cea3749e190",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "trouble.nvim": {
+      "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "src": "https://github.com/folke/trouble.nvim"
     }
   }
 }

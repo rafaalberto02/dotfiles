@@ -1,4 +1,8 @@
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.gem/ruby/4.0.0/bin:$PATH
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 export MANPAGER="nvim +Man!"
 

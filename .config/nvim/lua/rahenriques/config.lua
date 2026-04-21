@@ -21,8 +21,13 @@ vim.o.undofile = true
 
 vim.o.termguicolors = true
 
+vim.o.scrolloff = 10
 vim.o.encoding = "utf-8"
 vim.o.updatetime = 50
+
+vim.o.cursorline = true
+
+vim.cmd("set signcolumn=yes:2")
 
 vim.cmd("colorscheme retrobox")
 -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")

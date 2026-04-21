@@ -9,14 +9,14 @@ require('mason-lspconfig').setup({
     ensure_installed = { "lua_ls" }
 })
 
-
 local opts = { noremap = true, silent = true }
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
+-- moved to conform
+-- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
 
 vim.keymap.set("n", "<leader>cl", function()
     vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
@@ -33,7 +33,12 @@ vim.keymap.set('i', '<c-space>', vim.lsp.completion.get)
 vim.lsp.codelens.enable(false)
 vim.lsp.document_color.enable()
 
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    update_in_insert = true,
+    underline = true,
+})
 
 vim.cmd [[set completeopt=menu,menuone,noselect,noinsert]]
 

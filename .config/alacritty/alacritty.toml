@@ -17,7 +17,9 @@ option_as_alt = "Both"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
-size = 14
+bold = { family = "JetBrainsMono Nerd Font" }
+italic = { family = "JetBrainsMono Nerd Font" }
+size = 16
 
 [keyboard]
 bindings = [
