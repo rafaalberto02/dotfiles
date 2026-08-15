@@ -22,22 +22,17 @@ vim.keymap.set("n", "<leader>cl", function()
     vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
 end)
 
-vim.keymap.set("n", "<leader>dh", function()
-    vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
-end)
-
 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-vim.keymap.set('i', '<c-space>', vim.lsp.completion.get)
 
 
 vim.lsp.codelens.enable(false)
 vim.lsp.document_color.enable()
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     signs = true,
     update_in_insert = true,
-    underline = false,
+    underline = true,
 })
 
 vim.cmd [[set completeopt=menu,menuone,noselect,noinsert]]
@@ -47,6 +42,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
 
         if client:supports_method('textDocument/completion') then
+            vim.keymap.set('i', '<c-space>', vim.lsp.completion.get)
+            vim.keymap.set('i', '<c-n>', vim.lsp.completion.get)
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
 
