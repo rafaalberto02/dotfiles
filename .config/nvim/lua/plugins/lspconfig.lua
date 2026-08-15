@@ -75,3 +75,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+vim.filetype.add({
+    extension = {
+        gotmpl = "gotmpl",
+    },
+    pattern = {
+        -- Docker & Docker Compose
+        ["[Cc]ompose.*%.ya?ml"] = "yaml.docker-compose",
+        ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
+        ["Dockerfile.*"] = "dockerfile",
+        ["dockerfile.*"] = "dockerfile",
+
+        -- Ansible
+        [".*/host_vars/.*%.ya?ml"] = "yaml.ansible",
+        [".*/group_vars/.*%.ya?ml"] = "yaml.ansible",
+        [".*/roles/.*%.ya?ml"] = "yaml.ansible",
+        [".*/tasks/.*%.ya?ml"] = "yaml.ansible",
+        [".*/playbooks/.*%.ya?ml"] = "yaml.ansible",
+        ["site%.ya?ml"] = "yaml.ansible",
+        ["main%.ya?ml"] = "yaml.ansible",
+
+        -- Go Template
+        [".*%.tmpl%.ya?ml"] = "gotmpl",
+        [".*%.tpl"] = "gotmpl",
+    },
+})

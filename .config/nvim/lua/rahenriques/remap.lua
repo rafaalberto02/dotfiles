@@ -22,11 +22,18 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-auto-session<CR>")
 vim.keymap.set("n", "<Leader>pv", ":Ex<CR>")
 
 vim.keymap.set("n", "<space>st", function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd("J")
+    local dir = require("oil").get_current_dir() or vim.fn.expand("%:p:h")
+
+    vim.cmd("botright new")
+
+    vim.fn.jobstart(vim.o.shell, {
+        term = true,
+        cwd = dir,
+    })
+
     vim.api.nvim_win_set_height(0, 15)
 end)
+vim.keymap.set("t", "<C-w>", [[<C-\><C-N>]])
 
 vim.keymap.set('n', 'j', 'gj');
 vim.keymap.set('n', 'k', 'gk');
