@@ -34,10 +34,10 @@ vim.lsp.codelens.enable(false)
 vim.lsp.document_color.enable()
 
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = false,
     signs = true,
     update_in_insert = true,
-    underline = true,
+    underline = false,
 })
 
 vim.cmd [[set completeopt=menu,menuone,noselect,noinsert]]

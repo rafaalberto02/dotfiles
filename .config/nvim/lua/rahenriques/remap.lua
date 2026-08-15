@@ -27,3 +27,6 @@ vim.keymap.set("n", "<space>st", function()
     vim.cmd.wincmd("J")
     vim.api.nvim_win_set_height(0, 15)
 end)
+
+vim.keymap.set('n', 'j', 'gj');
+vim.keymap.set('n', 'k', 'gk');
