@@ -33,7 +33,10 @@ vim.keymap.set("n", "<space>st", function()
 
     vim.api.nvim_win_set_height(0, 15)
 end)
+
 vim.keymap.set("t", "<C-w>", [[<C-\><C-N>]])
 
 vim.keymap.set('n', 'j', 'gj');
 vim.keymap.set('n', 'k', 'gk');
+
+vim.keymap.set('i', '<C-Space>', '<C-n>', { silent = true })

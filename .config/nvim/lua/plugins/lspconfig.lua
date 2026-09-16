@@ -9,21 +9,6 @@ require('mason-lspconfig').setup({
     ensure_installed = { "lua_ls" }
 })
 
-local opts = { noremap = true, silent = true }
-
-vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
--- moved to conform
--- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
-
-vim.keymap.set("n", "<leader>cl", function()
-    vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
-end)
-
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-
 
 vim.lsp.codelens.enable(false)
 vim.lsp.document_color.enable()
@@ -35,15 +20,16 @@ vim.diagnostic.config({
     underline = true,
 })
 
-vim.cmd [[set completeopt=menu,menuone,noselect,noinsert]]
+vim.o.complete = '.,w,b,o'
+vim.o.completeopt = 'menuone,noselect,fuzzy'
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
-        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        local opts = { buffer = ev.buf, noremap = true, silent = true }
+
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
         if client:supports_method('textDocument/completion') then
-            vim.keymap.set('i', '<c-space>', vim.lsp.completion.get)
-            vim.keymap.set('i', '<c-n>', vim.lsp.completion.get)
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
 
@@ -51,25 +37,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.lsp.linked_editing_range.enable(true, { client_id = client.id });
         end
 
-        if client:supports_method('textDocument/documentHighlight') then
-            local group = vim.api.nvim_create_augroup("LSPDocumentHighlight", {})
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-                buffer = ev.buf,
-                group = group,
-                callback = function()
-                    vim.lsp.buf.document_highlight()
-                end,
-            })
+        vim.keymap.set("n", "<leader>cl", function()
+            vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
+        end)
 
-            vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-                buffer = ev.buf,
-                group = group,
-                callback = function()
-                    vim.lsp.buf.clear_references()
-                end,
-            })
-        end
+        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
     end,
 })
 
