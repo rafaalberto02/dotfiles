@@ -17,7 +17,7 @@ vim.keymap.set('x', '<Leader>Y', '"+Y')
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-auto-session<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/commonrc/scripts/tmux-auto-session.bash<CR>")
 
 vim.keymap.set("n", "<Leader>pv", ":Ex<CR>")
 

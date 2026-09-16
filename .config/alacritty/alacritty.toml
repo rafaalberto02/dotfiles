@@ -19,7 +19,7 @@ option_as_alt = "Both"
 normal = { family = "JetBrainsMono Nerd Font" }
 bold = { family = "JetBrainsMono Nerd Font" }
 italic = { family = "JetBrainsMono Nerd Font" }
-size = 16
+size = 20
 
 [keyboard]
 bindings = [
