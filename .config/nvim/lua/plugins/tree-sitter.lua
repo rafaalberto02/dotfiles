@@ -6,8 +6,6 @@ require('nvim-treesitter').setup {
     install_dir = vim.fn.stdpath('data') .. '/site'
 }
 
-require('nvim-treesitter').install { 'c', 'javascript', 'go' }
-
 vim.api.nvim_create_autocmd('FileType', {
     pattern = '*',
     callback = function()
