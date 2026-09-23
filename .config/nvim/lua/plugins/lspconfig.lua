@@ -9,7 +9,6 @@ require('mason-lspconfig').setup({
     ensure_installed = { "lua_ls" }
 })
 
-
 vim.lsp.codelens.enable(false)
 vim.lsp.document_color.enable()
 
@@ -20,8 +19,10 @@ vim.diagnostic.config({
     underline = true,
 })
 
-vim.o.complete = '.,w,b,o'
-vim.o.completeopt = 'menuone,noselect,fuzzy'
+vim.o.autocomplete = true
+vim.o.autocompletedelay = 250
+vim.o.complete = 'o,.,w,b'
+vim.o.completeopt = 'fuzzy,menuone,noselect,popup'
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)

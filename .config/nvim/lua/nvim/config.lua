@@ -22,24 +22,14 @@ vim.o.undofile = true
 vim.o.termguicolors = true
 
 vim.o.scrolloff = 10
-vim.o.encoding = "utf-8"
+vim.o.encoding = "UTF-8"
 vim.o.updatetime = 50
-
-vim.o.cursorline = true
-
-vim.cmd("set signcolumn=yes:2")
-
-vim.cmd("colorscheme retrobox")
--- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
--- vim.cmd("hi SignColumn guibg=NONE ctermbg=NONE")
--- vim.cmd("hi NormalNC guibg=NONE ctermbg=NONE")
--- vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
 vim.g.editorconfig = true
 
 -- Set Netrw options
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 1
+vim.g.netrw_banner = 1
+vim.g.netrw_liststyle = 0
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("HighlightYank", {}),

@@ -1,20 +1,17 @@
-vim.pack.add({ { src = 'https://github.com/folke/lazydev.nvim' } })
-
-require("lazydev").setup()
-
 return {
     settings = {
         Lua = {
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-            },
             diagnostics = {
                 globals = { 'vim' },
             },
-            runtime = {
-                version = 'LuaJIT',
+            workspace = {
+                library = {
+                    vim.env.VIMRUNTIME,
+                },
+            },
+            telemetry = {
+                enable = false,
             },
         },
-    }
+    },
 }

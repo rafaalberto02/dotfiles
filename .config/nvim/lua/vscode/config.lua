@@ -2,7 +2,7 @@
 -- Maps Neovim keybindings to VSCode commands using vscode.action()
 local opts = { noremap = true, silent = true }
 
-local vscode = require("vscode")
+local vscode = require(".config.nvim.lua.rahenriques.vscode.init")
 
 vim.keymap.set("n", "K", function() vscode.action("editor.action.showHover") end, opts)
 vim.keymap.set("n", "gd", function() vscode.action("editor.action.revealDefinition") end, opts)

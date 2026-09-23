@@ -9,4 +9,6 @@ require("conform").setup({
     },
 })
 
-vim.keymap.set("n", "<leader>f", function() require("conform").format({ async = true }) end)
+local conform = require("conform");
+
+vim.keymap.set("n", "<leader>f", function() conform.format({ async = true }) end)
