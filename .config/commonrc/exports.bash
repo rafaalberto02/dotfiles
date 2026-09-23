@@ -1,4 +1,5 @@
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.gem/ruby/4.0.0/bin:$PATH
 
