@@ -8,13 +8,20 @@ require("rose-pine").setup({
     },
 })
 
-vim.cmd.colorscheme("rose-pine");
+vim.o.cursorline = true
 
+vim.cmd.colorscheme("rose-pine");
 vim.cmd.set("signcolumn=yes:2")
 
-vim.cmd.hi("Normal guibg=NONE ctermbg=NONE")
-vim.cmd.hi("SignColumn guibg=NONE ctermbg=NONE")
-vim.cmd.hi("NormalNC guibg=NONE ctermbg=NONE")
-vim.cmd.hi("EndOfBuffer guibg=NONE ctermbg=NONE")
+local bgnone = { bg = "NONE", ctermbg = "NONE" }
 
-vim.o.cursorline = true
+vim.api.nvim_set_hl(0, "Normal", bgnone)
+vim.api.nvim_set_hl(0, "NormalNC", bgnone)
+vim.api.nvim_set_hl(0, "SignColumn", bgnone)
+vim.api.nvim_set_hl(0, "EndOfBuffer", bgnone)
+
+local cursorline = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false })
+if cursorline.bg then
+    vim.api.nvim_set_hl(0, "StatusLine", { bg = cursorline.bg, fg = cursorline.fg })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { bg = cursorline.bg, fg = cursorline.fg })
+end

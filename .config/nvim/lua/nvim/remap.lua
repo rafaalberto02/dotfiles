@@ -1,4 +1,5 @@
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/commonrc/scripts/tmux-auto-session.bash<CR>", { silent = true })
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/commonrc/scripts/tmux-auto-session.bash<CR>",
+    { silent = true })
 
 vim.keymap.set("n", "<Leader>pv", ":Ex<CR>", { silent = true })
 
@@ -17,3 +18,4 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { silent = true })
 
+vim.keymap.set('n', '<leader>rr', vim.cmd.restart, { silent = true })
