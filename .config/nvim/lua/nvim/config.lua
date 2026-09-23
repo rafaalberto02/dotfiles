@@ -21,6 +21,8 @@ vim.o.scrolloff = 10
 vim.o.encoding = "UTF-8"
 vim.o.updatetime = 50
 
+vim.opt.equalalways = false
+
 vim.g.editorconfig = true
 
 -- Set Netrw options
