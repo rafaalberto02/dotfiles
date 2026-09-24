@@ -1,5 +1,4 @@
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/commonrc/scripts/tmux-auto-session.bash<CR>",
-    { silent = true })
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/commonrc/scripts/tmux-auto-session.bash<CR>", { silent = true })
 
 vim.keymap.set("n", "<Leader>pv", ":Ex<CR>", { silent = true })
 

@@ -1,4 +1,4 @@
-require("shared")
+require("common")
 
 if vim.g.vscode then
     require("vscode-nvim")
