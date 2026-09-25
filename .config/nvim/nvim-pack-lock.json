@@ -12,10 +12,6 @@
       "rev": "11ca760211fcdfef1794df8cf2ff2b78aaf102b9",
       "src": "https://github.com/nvim-flutter/flutter-tools.nvim"
     },
-    "fzf-lua": {
-      "rev": "13bb178a299f7493dd64427a58e61904c4b58ecb",
-      "src": "https://github.com/ibhagwan/fzf-lua"
-    },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
@@ -76,6 +72,10 @@
     "render-markdown.nvim": {
       "rev": "640a3ec6d538bad17c328be373c7cad0293d9589",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "trouble.nvim": {
       "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",

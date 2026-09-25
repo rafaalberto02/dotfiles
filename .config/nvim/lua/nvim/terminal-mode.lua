@@ -20,6 +20,24 @@ vim.keymap.set("n", "<space>st", function()
     vim.api.nvim_win_set_height(0, 15)
 end, { silent = true })
 
+
+vim.api.nvim_create_autocmd('TermOpen', {
+    pattern = 'term://*',
+    callback = function()
+        vim.wo.number = true
+        vim.wo.relativenumber = true
+        vim.wo.signcolumn = 'yes'
+        vim.wo.scrolloff = 10
+    end,
+})
+
+if vim.fn.has("win32") then
+  vim.o.shell = "pwsh"
+  vim.o.shellcmdflag = "-c"
+  vim.o.shellquote = ""
+  vim.o.shellxquote = ""
+end
+
 vim.keymap.set("t", "<C-c><C-c>", [[<C-\><C-N>]], { silent = true })
 
 vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', { silent = true })

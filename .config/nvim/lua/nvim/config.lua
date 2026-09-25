@@ -8,16 +8,6 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = 'yes'
 
-vim.api.nvim_create_autocmd('TermOpen', {
-    pattern = 'term://*',
-    callback = function()
-        vim.wo.number = true
-        vim.wo.relativenumber = true
-        vim.wo.signcolumn = 'yes'
-        vim.wo.scrolloff = 10
-    end,
-})
-
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
