@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("TermClose", {
 })
 
 vim.keymap.set("n", "<space>st", function()
-    local dir = vim.b.netrw_curdir or vim.fn.expand("%:p:h")
+    local dir = require("oil").get_current_dir() or vim.b.netrw_curdir or vim.fn.expand("%:p:h")
 
     vim.cmd("botright new")
 
@@ -20,4 +20,9 @@ vim.keymap.set("n", "<space>st", function()
     vim.api.nvim_win_set_height(0, 15)
 end, { silent = true })
 
-vim.keymap.set("t", "<esc><esc>", [[<C-\><C-N>]], { silent = true })
+vim.keymap.set("t", "<C-c><C-c>", [[<C-\><C-N>]], { silent = true })
+
+vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', { silent = true })
+vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j', { silent = true })
+vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k', { silent = true })
+vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l', { silent = true })
