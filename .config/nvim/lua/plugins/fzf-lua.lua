@@ -16,3 +16,6 @@ vim.keymap.set('n', 'gr', fzf.lsp_references)
 vim.keymap.set('n', 'gi', fzf.lsp_implementations)
 vim.keymap.set('n', 'sy', fzf.lsp_document_symbols)
 vim.keymap.set('n', 'tsy', fzf.treesitter)
+
+vim.keymap.set('n', '<leader>xx', fzf.lsp_workspace_diagnostics)
+vim.keymap.set('n', '<leader>xX', fzf.lsp_document_diagnostics)

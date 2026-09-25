@@ -30,11 +30,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-        if client:supports_method('textDocument/completion') then
+        if client and client:supports_method('textDocument/completion') then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
 
-        if client:supports_method('textDocument/linkedEditingRange') then
+        if client and client:supports_method('textDocument/linkedEditingRange') then
             vim.lsp.linked_editing_range.enable(true, { client_id = client.id });
         end
 
