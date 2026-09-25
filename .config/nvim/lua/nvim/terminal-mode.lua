@@ -10,14 +10,15 @@ vim.api.nvim_create_autocmd("TermClose", {
 vim.keymap.set("n", "<space>st", function()
     local dir = require("oil").get_current_dir() or vim.b.netrw_curdir or vim.fn.expand("%:p:h")
 
-    vim.cmd("botright new")
+    vim.cmd("vertical botright new")
 
     vim.fn.jobstart(vim.o.shell, {
         term = true,
         cwd = dir,
     })
 
-    vim.api.nvim_win_set_height(0, 15)
+    local total_width = vim.o.columns
+    vim.api.nvim_win_set_width(0, math.floor(total_width * 0.3))
 end, { silent = true })
 
 
@@ -32,10 +33,10 @@ vim.api.nvim_create_autocmd('TermOpen', {
 })
 
 if vim.fn.has("win32") then
-  vim.o.shell = "pwsh"
-  vim.o.shellcmdflag = "-c"
-  vim.o.shellquote = ""
-  vim.o.shellxquote = ""
+    vim.o.shell = "pwsh"
+    vim.o.shellcmdflag = "-c"
+    vim.o.shellquote = ""
+    vim.o.shellxquote = ""
 end
 
 vim.keymap.set("t", "<C-c><C-c>", [[<C-\><C-N>]], { silent = true })
