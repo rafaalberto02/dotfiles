@@ -15,6 +15,12 @@ snacks.setup({
                 },
             },
         },
+        sources = {
+            files = { hidden = true },
+            grep = { hidden = true },
+            explorer = { hidden = true },
+            smart = { hidden = true },
+        },
     },
 })
 
