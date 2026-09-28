@@ -25,14 +25,17 @@ end, { silent = true })
 vim.api.nvim_create_autocmd('TermOpen', {
     pattern = 'term://*',
     callback = function()
-        vim.wo.number = true
-        vim.wo.relativenumber = true
         vim.wo.signcolumn = 'yes'
         vim.wo.scrolloff = 10
     end,
 })
 
-if vim.fn.has("win32") then
+vim.api.nvim_create_autocmd({ 'TermOpen' }, {
+    pattern = 'term://*',
+    command = "startinsert",
+})
+
+if vim.fn.has("win32") == 1 then
     vim.o.shell = "pwsh"
     vim.o.shellcmdflag = "-c"
     vim.o.shellquote = ""

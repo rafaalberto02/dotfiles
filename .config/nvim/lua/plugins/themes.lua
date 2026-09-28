@@ -63,9 +63,9 @@ vim.cmd.colorscheme("rose-pine");
 vim.cmd.set("signcolumn=yes:2")
 vim.o.cursorline = true
 
-local bgnone = { bg = "NONE", ctermbg = "NONE" }
-
-vim.api.nvim_set_hl(0, "Normal", bgnone)
-vim.api.nvim_set_hl(0, "NormalNC", bgnone)
-vim.api.nvim_set_hl(0, "SignColumn", bgnone)
-vim.api.nvim_set_hl(0, "EndOfBuffer", bgnone)
+-- local bgnone = { bg = "NONE", ctermbg = "NONE" }
+--
+-- vim.api.nvim_set_hl(0, "Normal", bgnone)
+-- vim.api.nvim_set_hl(0, "NormalNC", bgnone)
+-- vim.api.nvim_set_hl(0, "SignColumn", bgnone)
+-- vim.api.nvim_set_hl(0, "EndOfBuffer", bgnone)

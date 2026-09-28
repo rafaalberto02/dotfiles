@@ -49,3 +49,4 @@ vim.opt.listchars = {
 }
 
 vim.opt.list = false
+vim.opt.pumheight = 10
