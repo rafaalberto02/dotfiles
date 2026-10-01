@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-selectedPath=$(find -L "$HOME"/.personal  "$HOME"/.config -maxdepth 1 -type d -print | fzf)
+selectedPath=$(find -L "$HOME"/.personal  "$HOME"/.config -maxdepth 1 -type d -print | fzf --popup --reverse)
 
-if [[ -d $selectedPath ]]; then
+if [ -d "$selectedPath" ]; then
     selectedPath=$(realpath "$selectedPath")
 
     sessionName=$(basename "$selectedPath" | tr -dc '[:alnum:]\n\r')
@@ -12,9 +12,9 @@ if [[ -d $selectedPath ]]; then
         tmux new-session -s "$sessionName" -c "$selectedPath" -d
     fi
 
-    if [[ -z $TMUX ]];
+    if [ -z "$TMUX" ];
     then
-        tmux attach-session -t "$sessionName" 
+        tmux attach-session -t "$sessionName"
 
         exit 0;
     else

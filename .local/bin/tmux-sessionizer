@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+tmux list-sessions -F '#{session_name} #{?session_attached,(attached),}' -O name | 
+    fzf --popup --reverse | 
+    xargs tmux switch-client -t
