@@ -8,6 +8,9 @@ snacks.setup({
     picker = {
         enabled = true,
         live = true,
+        layout = {
+            preview = false,
+        },
         win = {
             input = {
                 bo = {
@@ -20,9 +23,7 @@ snacks.setup({
             grep = { hidden = true },
             explorer = { hidden = true },
             smart = { hidden = true },
-            lsp_definitions = {
-                auto_confirm = true,
-            },
+            lsp_definitions = { auto_confirm = true, },
         },
     },
 })

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 selectedPath=$(find -L "$HOME"/.personal  "$HOME"/.config -maxdepth 1 -type d -print | fzf)
 

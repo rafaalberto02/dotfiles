@@ -12,7 +12,7 @@ setopt hist_ignore_dups
 setopt auto_cd
 
 precmd() {
-  PS1_CMD1=$(~/.config/commonrc/scripts/PS1_git_branch.bash)
+  PS1_CMD1=$(PS1_git_branch)
 }
 
 PROMPT=$'\n\e[92;1m%~\e[0m ${PS1_CMD1}\n$ '

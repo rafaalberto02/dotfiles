@@ -1,1 +1,1 @@
-bindkey -s '^F' '~/.config/commonrc/scripts/tmux-auto-session.bash\n'
+bindkey -s '^F' 'tmux-auto-session\n'

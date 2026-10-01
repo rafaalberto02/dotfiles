@@ -2,6 +2,9 @@ vim.pack.add({ { src = 'https://github.com/stevearc/oil.nvim' } })
 
 require("oil").setup({
     default_file_explorer = true,
+    win_options = {
+        winbar = "%{v:lua.require('oil').get_current_dir()}",
+    },
     columns = {
         "icon",
         -- "permissions",

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Shoutout:
 # https://gist.github.com/stevewithington/b1b620b5bc9252e2c32e2cad35efbf83
