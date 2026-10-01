@@ -21,17 +21,16 @@ vim.keymap.set("n", "<space>st", function()
     vim.api.nvim_win_set_width(0, math.floor(total_width * 0.3))
 end, { silent = true })
 
-
-vim.api.nvim_create_autocmd('TermOpen', {
-    pattern = 'term://*',
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "term://*",
     callback = function()
-        vim.wo.signcolumn = 'yes'
+        vim.wo.signcolumn = "yes"
         vim.wo.scrolloff = 10
     end,
 })
 
-vim.api.nvim_create_autocmd({ 'TermOpen' }, {
-    pattern = 'term://*',
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
+    pattern = "term://*",
     command = "startinsert",
 })
 
@@ -44,7 +43,7 @@ end
 
 vim.keymap.set("t", "<C-c><C-c>", [[<C-\><C-N>]], { silent = true })
 
-vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', { silent = true })
-vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j', { silent = true })
-vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k', { silent = true })
-vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l', { silent = true })
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h", { silent = true })
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j", { silent = true })
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { silent = true })
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { silent = true })

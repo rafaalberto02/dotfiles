@@ -1,14 +1,22 @@
 vim.pack.add({
-    { src = 'https://github.com/stevearc/conform.nvim' },
+    { src = "https://github.com/stevearc/conform.nvim" },
 })
 
 require("conform").setup({
-    formatters_by_ft = {},
+    formatters_by_ft = {
+        -- beautysh
+        bash = { "beautysh" },
+        sh = { "beautysh" },
+        zsh = { "beautysh" },
+        lua = { "stylua" },
+    },
     default_format_opts = {
         lsp_format = "fallback",
     },
 })
 
-local conform = require("conform");
+local conform = require("conform")
 
-vim.keymap.set("n", "<leader>f", function() conform.format({ async = true }) end)
+vim.keymap.set("n", "<leader>f", function()
+    conform.format({ async = true })
+end)

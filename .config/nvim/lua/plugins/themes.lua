@@ -1,7 +1,7 @@
 vim.pack.add({
-    'https://github.com/nvim-tree/nvim-web-devicons',
-    'https://github.com/rose-pine/neovim',
-    'https://github.com/nvim-lualine/lualine.nvim'
+    "https://github.com/nvim-tree/nvim-web-devicons",
+    "https://github.com/rose-pine/neovim",
+    "https://github.com/nvim-lualine/lualine.nvim",
 })
 
 require("rose-pine").setup({
@@ -10,56 +10,54 @@ require("rose-pine").setup({
     },
 })
 
-require('lualine').setup {
+require("lualine").setup({
     options = {
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        globalstatus = true
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        globalstatus = true,
     },
     sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'diagnostics' },
-        lualine_c = { 'branch', 'diff' },
-        lualine_x = { 'encoding', 'lsp_status', },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_a = { "mode" },
+        lualine_b = { "diagnostics" },
+        lualine_c = { "branch", "diff" },
+        lualine_x = { "encoding", "lsp_status" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
     },
     tabline = {
         lualine_a = {},
         lualine_b = {
             {
-                'filetype',
+                "filetype",
                 colored = true,
                 icon_only = true,
             },
             {
-                'tabs',
+                "tabs",
                 mode = 2,
             },
         },
-        lualine_c = {
-        },
+        lualine_c = {},
         lualine_x = {},
         lualine_y = {
             {
-                'datetime',
-                style = '%d-%m-%y %H:%M'
-            }
+                "datetime",
+                style = "%d-%m-%y %H:%M",
+            },
         },
-        lualine_z = {
-        }
+        lualine_z = {},
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
     },
-}
+})
 
-vim.cmd.colorscheme("rose-pine");
+vim.cmd.colorscheme("rose-pine")
 vim.cmd.set("signcolumn=yes:2")
 vim.o.cursorline = true
 

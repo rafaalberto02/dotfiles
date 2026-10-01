@@ -1,12 +1,12 @@
 vim.pack.add({
-    { src = 'https://github.com/neovim/nvim-lspconfig' },
-    { src = 'https://github.com/mason-org/mason.nvim' },
-    { src = 'https://github.com/mason-org/mason-lspconfig.nvim' }
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
 })
 
-require('mason').setup()
-require('mason-lspconfig').setup({
-    ensure_installed = { "lua_ls" }
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { "lua_ls" },
 })
 
 vim.lsp.codelens.enable(false)
@@ -21,21 +21,21 @@ vim.diagnostic.config({
 
 vim.o.autocomplete = true
 vim.o.autocompletedelay = 250
-vim.o.complete = 'o,.,w,b'
-vim.o.completeopt = 'fuzzy,menuone,noselect,popup'
+vim.o.complete = "o,.,w,b"
+vim.o.completeopt = "fuzzy,menuone,noselect,popup"
 
-vim.api.nvim_create_autocmd('LspAttach', {
+vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local opts = { buffer = ev.buf, noremap = true, silent = true }
 
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-        if client and client:supports_method('textDocument/completion') then
+        if client and client:supports_method("textDocument/completion") then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
 
-        if client and client:supports_method('textDocument/linkedEditingRange') then
-            vim.lsp.linked_editing_range.enable(true, { client_id = client.id });
+        if client and client:supports_method("textDocument/linkedEditingRange") then
+            vim.lsp.linked_editing_range.enable(true, { client_id = client.id })
         end
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)

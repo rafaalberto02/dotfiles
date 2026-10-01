@@ -6,7 +6,7 @@ vim.g.netrw_liststyle = 0
 vim.o.guicursor = ""
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -40,12 +40,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.opt.listchars = {
-    tab = '→ ',
-    trail = '·',
-    extends = '>',
-    precedes = '<',
-    nbsp = '␣',
-    space = '␣'
+    tab = "→ ",
+    trail = "·",
+    extends = ">",
+    precedes = "<",
+    nbsp = "␣",
+    space = "␣",
 }
 
 vim.opt.list = false
